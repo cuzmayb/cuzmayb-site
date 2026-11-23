@@ -40,3 +40,6 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 .data/
+
+# local review notes (hiring panel)
+.hiring-panel/
