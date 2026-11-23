@@ -36,9 +36,13 @@ const nextConfig: NextConfig = {
   async rewrites() {
     return [
       { source: "/", destination: "/ko" },
-      { source: "/:section(projects|blog|concepts|about|resume|guestbook|package|privacy)/:path*", destination: "/ko/:section/:path*" },
+      // Two rules per case, exact and nested. One rule with ":path*" turns "/projects" into "/ko/projects/" (trailing
+      // slash), and on Vercel a client-side navigation to that address answered 500 for sections that have child pages.
+      { source: "/:section(projects|blog|concepts|about|resume|guestbook|package|privacy)", destination: "/ko/:section" },
+      { source: "/:section(projects|blog|concepts|about|resume|guestbook|package|privacy)/:path+", destination: "/ko/:section/:path+" },
       // Any other bare address is Korean too, so an unknown one gets the site's 404 instead of the framework's.
-      { source: "/:first((?!(?:ko|en|zh)(?:/|$))[^/.]+)/:path*", destination: "/ko/:first/:path*" },
+      { source: "/:first((?!(?:ko|en|zh)(?:/|$))[^/.]+)", destination: "/ko/:first" },
+      { source: "/:first((?!(?:ko|en|zh)(?:/|$))[^/.]+)/:path+", destination: "/ko/:first/:path+" },
     ];
   },
   // Old addresses keep working. The exploded view used to live at /mk1.
