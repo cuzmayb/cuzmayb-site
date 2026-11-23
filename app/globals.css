@@ -58,8 +58,16 @@ main { max-width: var(--max); margin: 0 auto; padding: 32px 16px 80px; }
 .pills { position: relative; display: flex; gap: 2px; }
 .pills a { position: relative; padding: 8px clamp(8px, 1.2vw, 12px); border-radius: 999px; font-size: clamp(13px, 1.1vw, 14px); color: var(--muted); transition: color var(--d-color) ease-out; }
 .pills a:hover, .pills a[aria-current="page"] { color: var(--fg); }
-.foot { max-width: var(--max); margin: 0 auto; padding: 24px 16px 40px; color: var(--muted); font-size: 13px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px 24px; }
-.foot-links { display: flex; flex-wrap: wrap; gap: 4px 20px; font-size: 14px; }
+/* Footer: a hairline across the column, then the same space above and below the text. Wide screens: links left, legal right.
+   Phones: two centred rows, so nothing is pushed against the edges. Both rows are one size. */
+.foot { max-width: var(--max); margin: 0 auto; padding: 0 16px; color: var(--muted); font-size: 13px; }
+.foot-in { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px 24px; padding: 28px 0 calc(28px + env(safe-area-inset-bottom)); border-top: 1px solid var(--line); }
+.foot-links { display: flex; flex-wrap: wrap; gap: 4px 24px; }
+@media (max-width: 640px) {
+  body:not(:has(.home)) main { padding-bottom: 56px; } /* the home page keeps its own foot: the p-n strip sits in that space */
+  .foot-in { flex-direction: column; justify-content: center; gap: 10px; padding: 24px 0 calc(24px + env(safe-area-inset-bottom)); }
+  .foot-links { justify-content: center; gap: 4px 28px; }
+}
 .foot-links a { padding: 4px 0; transition: color var(--d-color) ease-out; }
 .foot-links a:hover, .foot-legal a:hover { color: var(--fg); }
 .foot-legal a { margin-left: 12px; padding: 4px 0; transition: color var(--d-color) ease-out; }
@@ -733,7 +741,6 @@ body:has(.top[data-hidden="true"]) .pj-nav[data-stuck="true"] { transform: trans
 @keyframes np-w2 { 0%, 4.9% { opacity: 1; stroke-dashoffset: 0; } 5%, 9.9% { opacity: 0; stroke-dashoffset: 1; } 10%, 25% { opacity: 1; stroke-dashoffset: 1; } 34%, 100% { opacity: 1; stroke-dashoffset: 0; } }
 @keyframes np-w3 { 0%, 4.9% { opacity: 1; stroke-dashoffset: 0; } 5%, 9.9% { opacity: 0; stroke-dashoffset: 1; } 10%, 35% { opacity: 1; stroke-dashoffset: 1; } 49%, 100% { opacity: 1; stroke-dashoffset: 0; } }
 @keyframes np-w4 { 0%, 4.9% { opacity: 1; stroke-dashoffset: 0; } 5%, 9.9% { opacity: 0; stroke-dashoffset: 1; } 10%, 50% { opacity: 1; stroke-dashoffset: 1; } 57%, 100% { opacity: 1; stroke-dashoffset: 0; } }
-@media (prefers-reduced-motion: reduce) { .ab-note :is(.np-flip, .np-ink) { animation: none; } }
 
 /* 먼저 해 보기: a runner on a 0.6 s stride (about 200 steps a minute). Thigh and shin are separate, so the knee folds:
    the foot lands in front, passes under the hip, pushes off behind, then the heel kicks up and the knee drives forward.
@@ -811,7 +818,6 @@ body:has(.top[data-hidden="true"]) .pj-nav[data-stuck="true"] { transform: trans
 @keyframes rn-bob { 0%, 100% { transform: translateY(-1.6px); } 50% { transform: translateY(1.2px); } }
 @keyframes rn-ground { from { transform: translateX(0); } to { transform: translateX(-18px); } }
 @keyframes rn-speed { from { transform: translateX(6px); opacity: 0; } 40% { opacity: 1; } to { transform: translateX(-8px); opacity: 0; } }
-@media (prefers-reduced-motion: reduce) { .ab-run * { animation: none !important; } }
 
 /* 판단의 과정: evidence → decision → result, and a dashed loop back from the result to the evidence. */
 .about .prose .ab-fig { margin: -6px 0 22px; }
@@ -831,7 +837,6 @@ body:has(.top[data-hidden="true"]) .pj-nav[data-stuck="true"] { transform: trans
 @keyframes ab-step-1 { 0%, 8% { stroke-width: 2.4; } 10%, 95% { stroke-width: 1.2; } 97%, 100% { stroke-width: 2.4; } }
 @keyframes ab-step-2 { 0%, 12% { stroke-width: 1.2; } 14%, 28% { stroke-width: 2.4; } 30%, 100% { stroke-width: 1.2; } }
 @keyframes ab-step-3 { 0%, 33% { stroke-width: 1.2; } 35%, 44% { stroke-width: 2.4; } 46%, 100% { stroke-width: 1.2; } }
-@media (prefers-reduced-motion: reduce) { .ab-loop .ab-dot { display: none; } .ab-loop .ab-box rect { animation: none; } }
 
 /* Values: on wide screens the group label (사람으로서 / 일할 때) sits in a narrow left column and stays in view
    while its items scroll past; on phones it stacks above them as before. The label spans every row of its group. */
@@ -1088,7 +1093,6 @@ body:has(.top[data-hidden="true"]) .pj-nav[data-stuck="true"] { transform: trans
 .pn-pause svg { fill: currentColor; }
 .pn-pause:hover { color: var(--fg); background: var(--card); }
 .pn-pause:active { transform: scale(0.96); transition-duration: var(--d-press); }
-@media (prefers-reduced-motion: reduce) { .pn-move { display: none; } .pn-still { display: inline; } .pn-pause { display: none; } }
 @media print { .pn { display: none; } }
 
 /* ---- Project page: sources list (lib/project.tsx) ---- */
@@ -1123,10 +1127,11 @@ body:has(.top[data-hidden="true"]) .pj-nav[data-stuck="true"] { transform: trans
 
 .pt-filter { margin: 0 0 32px; }
 
-/* ---- Reduced motion: nothing moves and nothing fades. Every animation and transition is off, so each state change is a cut
-   and each loop rests on its still frame (the written page, the standing runner, the textbook band diagram). ---- */
+/* ---- Reduced motion: nothing travels across the page. Entrances, page fades, sliding panels, hover moves and the package
+   spread are all cuts. The small drawings that move in place (the p-n carriers, the notepad, the runner, the decision loop)
+   keep playing: they are the content of their spot, not a transition, and the p-n strip has its own pause button. ---- */
 @media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+  *:not(:is(.ab-pic, .ab-loop) *), *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
   /* The poem card still waits 300 ms before closing, as a step with no fade, so the pointer can travel from the word onto it. */
   .poem-card { transition: opacity 0s 300ms, visibility 0s 300ms !important; transform: none; }
   .poem:hover .poem-card, .poem:focus .poem-card, .poem:focus-within .poem-card { transition-delay: 0s !important; }

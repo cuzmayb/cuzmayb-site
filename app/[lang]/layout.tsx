@@ -42,16 +42,14 @@ export default async function RootLayout({ children, params }: { children: React
           <PageIn>{children}</PageIn>
         </main>
         <footer className="foot">
+          <div className="foot-in">
           <nav className="foot-links" aria-label="Footer">
             <a href={site.github} target="_blank" rel="noreferrer">GitHub</a>
             <a href={`mailto:${site.email}`}>Email</a>
             {site.linkedin && <a href={site.linkedin} target="_blank" rel="noreferrer">LinkedIn</a>}
           </nav>
-          <span className="foot-legal">
-            © 2026 cuzmayb <Link href="/privacy">Privacy</Link>
-            {/* Credit asked for by the designer of the layout this site is based on (README, Credits). */}
-            <a href="https://github.com/bluealmond33-debug" target="_blank" rel="noreferrer">Design based on Dotorian</a>
-          </span>
+          <span className="foot-legal">© 2026 cuzmayb <Link href="/privacy">Privacy</Link></span>
+          </div>
         </footer>
         <Toaster />
         </LangProvider>

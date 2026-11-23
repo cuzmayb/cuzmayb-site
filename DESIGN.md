@@ -199,7 +199,7 @@ Small radii (4px code chips, 3px timeline nodes, 0.8px logo bars) and full pills
 - Intro video: tapping the home logo opens a 680x480 rounded card over a dimmed, blurred backdrop, playing the configured YouTube clip muted, looped, without controls (privacy-enhanced embed). Esc or a click outside closes it. Set in lib/site.ts `introVideo`; with none set, a tap restacks the logo.
 - Back button: in-page anchor links scroll with replaceState, so Back leaves the page instead of walking through sections.
 - Toast: rises in, rests, and fades out in one 2.2 s animation. About page drawings (notepad, runner) run only while on screen and resume where they stopped.
-- Reduced motion: every animation and transition is off. State changes are cuts, and each loop rests on its still frame.
+- Reduced motion: nothing travels across the page. Entrances, fades, sliding panels and hover moves are cuts. The small drawings that move in place (p-n carriers, notepad, runner, decision loop) keep playing; the p-n strip has a pause button.
 
 ### Navigation
 - **Style:** on inner pages, a sticky header whose contents align to the 760px column: brand mark + "cuzmayb" left, four pill links right. Muted text; hover and the current page (`aria-current="page"`) fill with the line colour and darken text.
