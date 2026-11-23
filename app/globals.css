@@ -828,8 +828,10 @@ body:has(.top[data-hidden="true"]) .pj-nav[data-stuck="true"] { transform: trans
 .ab-loop .ab-back { stroke: var(--fg); stroke-width: 1.2; fill: none; stroke-dasharray: 4 3; }
 .ab-loop marker path { fill: var(--fg); }
 .ab-loop .ab-back-t { font-size: 12px; font-weight: 400; fill: var(--muted); }
-/* A red dot runs the loop without end (SMIL in the markup); each box thickens while the dot is inside it. */
-.ab-loop .ab-dot { fill: var(--accent); }
+/* A red dot runs the loop without end, at one speed along all four sides (the percentages are the corners' share of the
+   518-unit perimeter); each box thickens while the dot is inside it. */
+.ab-loop .ab-dot { fill: var(--accent); animation: ab-dot 4.8s linear infinite; }
+@keyframes ab-dot { 0%, 100% { transform: translate(52px, 27px); } 41.7% { transform: translate(268px, 27px); } 50% { transform: translate(268px, 70px); } 91.7% { transform: translate(52px, 70px); } }
 .ab-loop .ab-box rect { animation: 4.8s linear infinite; }
 .ab-loop .ab-box rect:nth-of-type(1) { animation-name: ab-step-1; }
 .ab-loop .ab-box rect:nth-of-type(2) { animation-name: ab-step-2; }
@@ -1082,6 +1084,14 @@ body:has(.top[data-hidden="true"]) .pj-nav[data-stuck="true"] { transform: trans
 .pn-hollow { stroke: var(--bg); stroke-width: 5; }
 .pn-arrow { fill: none; stroke: var(--fg); stroke-width: 1.5; vector-effect: non-scaling-stroke; }
 .pn-head { fill: var(--fg); }
+/* Carriers: the outer group follows its path (a straight run along the band, then three short steps round the bend into the gap),
+   the inner group fades in over the first tenth and out over the last eighth. Eight of them, offset by a negative delay. */
+.pn-car { animation: pn-e 5.2s linear infinite; }
+.pn-car.pn-h { animation-name: pn-h; }
+.pn-car > g { animation: pn-fade 5.2s linear infinite; animation-delay: inherit; }
+@keyframes pn-e { 0% { transform: translate(748px, 25px); } 86.2% { transform: translate(430px, 25px); } 92.1% { transform: translate(408.3px, 26.5px); } 96.4% { transform: translate(392.8px, 30.3px); } 100% { transform: translate(381px, 36px); } }
+@keyframes pn-h { 0% { transform: translate(12px, 47px); } 86.2% { transform: translate(330px, 47px); } 92.1% { transform: translate(350.8px, 45.5px); } 96.4% { transform: translate(366.4px, 41.6px); } 100% { transform: translate(379px, 36px); } }
+@keyframes pn-fade { 0% { opacity: 0; } 10%, 88% { opacity: 1; } 100% { opacity: 0; } }
 /* Moving, the strip is bare. Paused (or with motion reduced) it is the textbook diagram: carriers at rest, levels named. */
 .pn-still, .pn-name { display: none; }
 .pn[data-paused="true"] .pn-still { display: inline; }
@@ -1131,7 +1141,7 @@ body:has(.top[data-hidden="true"]) .pj-nav[data-stuck="true"] { transform: trans
    spread are all cuts. The small drawings that move in place (the p-n carriers, the notepad, the runner, the decision loop)
    keep playing: they are the content of their spot, not a transition, and the p-n strip has its own pause button. ---- */
 @media (prefers-reduced-motion: reduce) {
-  *:not(:is(.ab-pic, .ab-loop) *), *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+  *:not(:is(.ab-pic, .ab-loop, .pn-move) *), *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
   /* The poem card still waits 300 ms before closing, as a step with no fade, so the pointer can travel from the word onto it. */
   .poem-card { transition: opacity 0s 300ms, visibility 0s 300ms !important; transform: none; }
   .poem:hover .poem-card, .poem:focus .poem-card, .poem:focus-within .poem-card { transition-delay: 0s !important; }

@@ -7,28 +7,28 @@ import { useL } from "@/lib/use-lang";
 // valence band (lower line) step down from the p side to the n side; the dashed line is the Fermi level, flat at
 // equilibrium. Electrons run along the conduction band from the right, holes along the valence band from the left,
 // and they meet in the gap at the junction and vanish (recombination). Paused, it is the plain textbook diagram:
-// carriers at rest and the three levels named. SMIL only, styles under .pn in globals.css.
+// carriers at rest and the three levels named. The carriers move by CSS keyframes (.pn-car in globals.css) that trace
+// the two paths below; SVG's own animation elements (SMIL) were dropped because iOS Safari did not play them.
 const EC = "M0 14H320C370 14 390 30 440 30H760";
 const EV = "M0 42H320C370 42 390 58 440 58H760";
-const E_PATH = "M748 25H430C405 25 392 30 381 36"; // electron: along Ec, then down into the gap
-const H_PATH = "M12 47H330C355 47 368 42 379 36"; // hole: along Ev, then up into the gap
-const DUR = 5.2;
-const STARTS = [0, 1.3, 2.6, 3.9];
+// Paths the keyframes pn-e and pn-h follow (kept here as the reference for those numbers):
+//   electron  M748 25 H430 C405 25 392 30 381 36   along Ec, then down into the gap
+//   hole      M12 47 H330 C355 47 368 42 379 36    along Ev, then up into the gap
+const STARTS = [0, 1.3, 2.6, 3.9]; // seconds into the 5.2 s loop at which each carrier sets off
 
-// A carrier is a zero-length round-capped stroke, so it stays a round dot of fixed size at any width.
+// A carrier is a near-zero-length round-capped stroke, so it stays a round dot of fixed size at any width.
 // A hole is the same dot with a smaller background-coloured dot on top.
 const dot = (kind: "e" | "h") => (
   <>
-    <path className="pn-dot" d="M0 0h0" />
-    {kind === "h" && <path className="pn-dot pn-hollow" d="M0 0h0" />}
+    <path className="pn-dot" d="M0 0h0.01" />
+    {kind === "h" && <path className="pn-dot pn-hollow" d="M0 0h0.01" />}
   </>
 );
 
+// Outer group travels the path, inner group fades in at the start and out at the junction; both share the negative delay.
 const mover = (kind: "e" | "h", t: number) => (
-  <g key={kind + t} opacity="0">
-    {dot(kind)}
-    <animateMotion dur={`${DUR}s`} begin={`${-t}s`} repeatCount="indefinite" path={kind === "e" ? E_PATH : H_PATH} />
-    <animate attributeName="opacity" dur={`${DUR}s`} begin={`${-t}s`} repeatCount="indefinite" values="0;1;1;0" keyTimes="0;0.1;0.88;1" />
+  <g key={kind + t} className={`pn-car pn-${kind}`} style={{ animationDelay: `${-t}s` }}>
+    <g>{dot(kind)}</g>
   </g>
 );
 
