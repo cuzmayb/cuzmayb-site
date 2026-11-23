@@ -1,0 +1,137 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-11-19T11:40:00+09:00",
+  "title": "Design System: cuzmayb",
+  "extensions": {
+    "colorMeta": {
+      "st-george-red": {
+        "role": "primary",
+        "displayName": "St George Red",
+        "canonical": "#c8102e",
+        "tonalRamp": [
+          "#3d0510",
+          "#5e0918",
+          "#8a0d22",
+          "#c8102e",
+          "#e04256",
+          "#ec7a88",
+          "#f5b3bb",
+          "#fbe3e6"
+        ]
+      },
+      "navy-ink": {
+        "role": "neutral",
+        "displayName": "Navy Ink",
+        "canonical": "#13213c",
+        "tonalRamp": [
+          "#070c17",
+          "#0d1526",
+          "#13213c",
+          "#24365a",
+          "#3e5480",
+          "#6b7fa6",
+          "#a7b4cc",
+          "#e3e8f1"
+        ]
+      },
+      "white-kit": {
+        "role": "neutral",
+        "displayName": "White Kit",
+        "canonical": "#ffffff"
+      },
+      "slate-muted": {
+        "role": "neutral",
+        "displayName": "Slate Muted",
+        "canonical": "#5b6478"
+      },
+      "pitch-line": {
+        "role": "neutral",
+        "displayName": "Pitch Line",
+        "canonical": "#dfe2e8"
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "The name on the home page only, clamp(64px, 17vw, 96px)."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Korean article prose, keep-all word breaking."
+      }
+    },
+    "shadows": [],
+    "motion": [],
+    "breakpoints": [
+      {
+        "name": "phone",
+        "value": "480px"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Nav Link",
+      "kind": "nav",
+      "refersTo": "nav-link",
+      "description": "Pill link in the sticky header.",
+      "html": "<nav class=\"ds-nav\"><a href=\"#\">프로젝트</a><a href=\"#\">블로그</a><a href=\"#\">소개</a></nav>",
+      "css": ".ds-nav { display: flex; gap: 4px; } .ds-nav a { padding: 6px 12px; border-radius: 999px; font-size: 14px; color: var(--muted, #5b6478); text-decoration: none; } .ds-nav a:hover { background: var(--line, #dfe2e8); color: var(--fg, #13213c); } .ds-nav a:focus-visible { outline: 2px solid var(--accent, #c8102e); outline-offset: 2px; }"
+    },
+    {
+      "name": "Filter Chip",
+      "kind": "chip",
+      "refersTo": "filter-chip",
+      "description": "Blog filter by 관점 or keyword; active state inverts to navy.",
+      "html": "<div class=\"ds-filters\"><button class=\"ds-chip\" aria-pressed=\"true\">전체</button><button class=\"ds-chip\" aria-pressed=\"false\">개인 공부</button></div>",
+      "css": ".ds-filters { display: flex; gap: 6px; } .ds-chip { font: inherit; font-size: 13px; padding: 4px 12px; border-radius: 999px; border: 1px solid var(--line, #dfe2e8); background: var(--card, #fff); color: var(--muted, #5b6478); cursor: pointer; } .ds-chip[aria-pressed=\"true\"] { background: var(--fg, #13213c); color: var(--bg, #ffffff); border-color: var(--fg, #13213c); } .ds-chip:focus-visible { outline: 2px solid var(--accent, #c8102e); outline-offset: 2px; }"
+    },
+    {
+      "name": "Tag",
+      "kind": "chip",
+      "refersTo": "tag",
+      "description": "Small outlined topic tag.",
+      "html": "<span class=\"ds-tag\">HBM</span>",
+      "css": ".ds-tag { font-size: 12px; color: var(--muted, #5b6478); border: 1px solid var(--line, #dfe2e8); border-radius: 999px; padding: 1px 8px; }"
+    },
+    {
+      "name": "Timeline Item",
+      "kind": "custom",
+      "description": "Project entry on the vertical rail with a red-outlined square node and red date.",
+      "html": "<ol class=\"ds-rail\"><li><div class=\"ds-when\">2026.09 – 2026.11</div><h3>HBM 12단 본딩층 void</h3><p>과도 열응답으로 본딩층 void를 찾는 방법.</p></li></ol>",
+      "css": ".ds-rail { list-style: none; margin: 0; padding: 0 0 0 20px; border-left: 2px solid var(--line, #dfe2e8); } .ds-rail li { position: relative; padding: 0 0 24px 16px; } .ds-rail li::before { content: \"\"; position: absolute; left: -27px; top: 8px; width: 12px; height: 12px; border-radius: 3px; background: var(--bg, #ffffff); border: 2px solid var(--accent, #c8102e); } .ds-when { font-size: 13px; color: var(--accent, #c8102e); font-variant-numeric: tabular-nums; } .ds-rail h3 { margin: 2px 0 4px; font-size: 19px; color: var(--fg, #13213c); } .ds-rail p { margin: 0; color: var(--muted, #5b6478); }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Sectioned Notebook (provisional)",
+    "overview": "A lab notebook the owner rereads: dates, conditions, numbers and limits written plainly, with cross-sections and 3D renders of the actual work as the pictures worth looking at. The palette borrows England's colours (white kit, navy, St George red) as the owner's own mark; nothing else from football or Oasis appears on the page. The page is quiet so the content can be dense. One column, generous line height, tables kept as tables. Colour is rare: navy carries the text, red marks time and the logo.",
+    "keyCharacteristics": [
+      "Single 760px reading column, flat surfaces, hairline dividers.",
+      "Navy ink on pure white. Light only; there is no dark mode.",
+      "St George red reserved for dates, the timeline nodes, the logo and focus. Text selection is a light-blue block (--select).",
+      "Stacked-die logo mark (four offset bars)."
+    ],
+    "rules": [
+      {
+        "name": "The Matchday Red Rule",
+        "body": "Red appears on at most a few small elements per screen: dates, nodes, the mark, links. If a screen looks red, it is wrong.",
+        "section": "colors"
+      },
+      {
+        "name": "The Seven Steps Rule",
+        "body": "Every font size is one of 96 / 32 / 22 / 19 / 16.5 / 14 / 13 px. A new size needs a reason written here first.",
+        "section": "typography"
+      }
+    ],
+    "dos": [
+      "Do keep red for dates, nodes, the logo, links and focus.",
+      "Do keep numbers in tables with units, as written in the source notes.",
+      "Do let cross-sections, plots and renders from the actual work be the images."
+    ],
+    "donts": [
+      "Don't use England or FA crests, three-lions motifs, kit logos, Oasis band or album artwork, or song lyrics beyond \"because, maybe\".",
+      "Don't add shadows or cards; the system is flat.",
+      "Don't use a coloured border thicker than 1px on the side of a block."
+    ]
+  }
+}

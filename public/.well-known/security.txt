@@ -1,0 +1,4 @@
+# Found a security problem on this site? Please write before disclosing it publicly.
+Contact: mailto:cuzmayb@gmail.com
+Expires: 2027-11-19T00:00:00.000Z
+Preferred-Languages: ko, en

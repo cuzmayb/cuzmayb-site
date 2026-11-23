@@ -1,0 +1,35 @@
+{
+  "detector": {
+    "ignoreRules": [],
+    "ignoreFiles": [],
+    "ignoreValues": [
+      {
+        "rule": "side-tab",
+        "value": "*",
+        "files": [
+          "app/globals.css"
+        ],
+        "createdAt": "2026-11-19T02:03:51.229Z",
+        "reason": "Claude: L97 is a .prose blockquote quote rule, already reduced to a 2px neutral --line border; not a card accent"
+      },
+      {
+        "rule": "design-system-color",
+        "value": "rgb(0 0 0 / 0.4)",
+        "createdAt": "2026-11-19T02:52:10.005Z",
+        "reason": "Claude: night-mode lifted-pill shadow, values written in DESIGN.md Elevation & Depth (One Lifted Pill Rule); shadow alphas, not palette colours"
+      },
+      {
+        "rule": "design-system-color",
+        "value": "rgb(0 0 0 / 0.3)",
+        "createdAt": "2026-11-19T02:52:10.017Z",
+        "reason": "Claude: night-mode lifted-pill shadow, values written in DESIGN.md Elevation & Depth (One Lifted Pill Rule); shadow alphas, not palette colours"
+      },
+      {
+        "rule": "bounce-easing",
+        "value": "cubic-bezier(0.34, 1.56, 0.64, 1)",
+        "createdAt": "2026-11-19T03:06:38.765Z",
+        "reason": "Claude: drag-release spring on the home logo only; documented in DESIGN.md Motion as the single overshoot curve"
+      }
+    ]
+  }
+}
