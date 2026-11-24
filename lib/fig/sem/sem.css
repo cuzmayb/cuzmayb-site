@@ -1,0 +1,10 @@
+.sem-stage { cursor: pointer; outline: none; border-radius: 4px; }
+.sem-stage:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
+.sem-beam { stroke: var(--anatomy-red); stroke-width: 1.1px; }
+.sem-spot { fill: var(--anatomy-red); opacity: .55; }
+.sem-electrons circle { fill: var(--anatomy-red); }
+.sem-bezel { fill: var(--anatomy-shade-0); stroke: var(--anatomy-lo); stroke-width: var(--anatomy-weight); vector-effect: non-scaling-stroke; }
+.sem-screen { fill: var(--cz-screen); }
+.sem-cell { fill: var(--cz-pixel); }
+.sem-led { fill: var(--anatomy-paper); stroke: var(--anatomy-lo); stroke-width: var(--anatomy-weight); vector-effect: non-scaling-stroke; }
+.sem-led[data-on] { fill: var(--anatomy-red); stroke: none; }

@@ -1,0 +1,31 @@
+/* The anatomy kit in the site's colours: navy ink on paper, one red. Light by default; night mode follows <html data-theme>. */
+.iso.cz {
+  --anatomy-page: #ffffff; --anatomy-card: #f6f7f9; --anatomy-text: #5b6478; --anatomy-strong: #13213c; --anatomy-muted: #8a91a1;
+  --anatomy-paper: #f6f7f9; --anatomy-face: #ffffff; --anatomy-top: #ffffff;
+  --anatomy-shade-0: #d9dde5; --anatomy-shade-1: #e2e5ec; --anatomy-shade-2: #eaedf2; --anatomy-shade-3: #f2f4f7;
+  --anatomy-lit-top: #ffffff; --anatomy-lit-shade: #eef0f5;
+  --anatomy-hi: #13213c; --anatomy-mid: #75809a; --anatomy-lo: #a8afbf; --anatomy-faint: #cfd4de; --anatomy-lit: #13213c;
+  --anatomy-halo: #4a5572; --anatomy-halo-opacity: .26; --anatomy-dot: #13213c;
+  --anatomy-red: #c8102e; --anatomy-green: #2f8a5b; --anatomy-blue: #2f55c4;
+  --anatomy-weight: .6px; --anatomy-ease: cubic-bezier(.32,.72,0,1);
+  --anatomy-mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  --cz-screen: #13213c; --cz-pixel: #e9eef8;
+}
+:root[data-theme="dark"] .iso.cz {
+  --anatomy-page: #0d1526; --anatomy-card: #121c31; --anatomy-text: #9aa3b5; --anatomy-strong: #eef0f4; --anatomy-muted: #6f7890;
+  --anatomy-paper: #121c31; --anatomy-face: #1a2540; --anatomy-top: #1b2742;
+  --anatomy-shade-0: #0e1628; --anatomy-shade-1: #111a2e; --anatomy-shade-2: #141e34; --anatomy-shade-3: #17223a;
+  --anatomy-lit-top: #24314f; --anatomy-lit-shade: #1c2843;
+  --anatomy-hi: #dfe4ee; --anatomy-mid: #6c7893; --anatomy-lo: #3e4a64; --anatomy-faint: #2a3550; --anatomy-lit: #ffffff;
+  --anatomy-halo: #03060c; --anatomy-halo-opacity: .85; --anatomy-dot: #eef0f4;
+  --anatomy-red: #ef4a5c;
+  --cz-screen: #060a14; --cz-pixel: #e9eef8;
+}
+.iso.cz .iso-figure { margin: 0 0 32px; }
+.iso.cz .iso-plate { border-radius: 8px; box-shadow: 0 0 0 1px var(--line); }
+.iso.cz .iso-legend { font-size: 13px; color: var(--muted); }
+/* On phones the drawing would sit small inside the card's padding: let it run a little past the sides, cropped by the card. */
+@media (max-width: 560px) {
+  .iso.cz .iso-plate { overflow: hidden; }
+  .iso.cz .iso-plate .iso-svg { width: 116%; margin-left: -8%; }
+}

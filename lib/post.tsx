@@ -3,6 +3,7 @@ import { pick } from "@/lib/article";
 import { ArticleEnhance, CopyMenu } from "@/lib/article-tools";
 import { related, type Entry, type Lang } from "@/lib/content";
 import { Mark } from "@/lib/mark";
+import { SemFigure } from "@/lib/fig/sem/figure";
 import { dateTr, kw, LANG_TAG, T, tr } from "@/lib/t";
 
 // Blog post, laid out like the reference: centred 684px column, breadcrumb + 48px title + author line,
@@ -54,7 +55,10 @@ export function PostArticle({ e, lang: cur }: { e: Entry; lang: Lang }) {
               </aside>
               <div className="post-body">
                 <p className="post-lede">{p.summary}</p>
-                <div className="prose" dangerouslySetInnerHTML={{ __html: p.html }} />
+                {/* A `<div data-fig="name"></div>` line in the markdown is where a live figure goes; the prose is split around it. */}
+                {p.html.split(/<div data-fig="(\w+)"><\/div>/).map((part, i) =>
+                  i % 2 ? <Figure key={i} name={part} lang={lang} /> : <div key={i} className="prose" dangerouslySetInnerHTML={{ __html: part }} />,
+                )}
                 <div className="tags">
                   {p.tags.map((t) => (
                     <span key={t}>#{t}</span>
@@ -88,3 +92,9 @@ export function PostArticle({ e, lang: cur }: { e: Entry; lang: Lang }) {
     </article>
   );
 }
+
+const FIGURES: Record<string, (props: { lang: Lang }) => React.ReactNode> = { sem: SemFigure };
+const Figure = ({ name, lang }: { name: string; lang: Lang }) => {
+  const F = FIGURES[name];
+  return F ? <F lang={lang} /> : null;
+};

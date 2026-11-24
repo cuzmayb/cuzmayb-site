@@ -9,32 +9,7 @@ tags: [测量设备, SEM]
 
 扫描电子显微镜（SEM，scanning electron microscope）是 **让电子束在样品表面逐点扫描（scan），并把每一点发出的信号强度转换成亮度** 来成像的设备。
 
-<figure class="fig">
-<svg viewBox="0 0 330 290" role="img" aria-label="SEM 的结构。从上到下依次是电子枪、聚光镜、扫描线圈、物镜、样品，旁边是探测器">
-<g fill="none" stroke="currentColor" stroke-width="1.5">
-<path d="M150 14h30l-8 18h-14z"/>
-<rect x="100" y="62" width="44" height="16"/><rect x="186" y="62" width="44" height="16"/>
-<rect x="118" y="118" width="26" height="12"/><rect x="186" y="118" width="26" height="12"/>
-<rect x="96" y="168" width="48" height="18"/><rect x="186" y="168" width="48" height="18"/>
-<rect x="110" y="240" width="110" height="14"/>
-<rect x="262" y="192" width="46" height="22"/>
-<path d="M174 236Q212 204 258 203M250 198l9 5l-9 6"/>
-</g>
-<g fill="none" stroke="var(--accent)" stroke-width="1.5">
-<path d="M165 32V186L150 238"/>
-<path d="M165 186L165 238M165 186L182 238" stroke-dasharray="3 4"/>
-</g>
-<g font-size="12" fill="currentColor">
-<text x="92" y="27" text-anchor="end">电子枪</text>
-<text x="92" y="74" text-anchor="end">聚光镜</text>
-<text x="92" y="128" text-anchor="end">扫描线圈</text>
-<text x="88" y="181" text-anchor="end">物镜</text>
-<text x="165" y="272" text-anchor="middle">样品</text>
-<text x="285" y="184" text-anchor="middle">探测器</text>
-</g>
-</svg>
-<figcaption>SEM 的结构。红线是电子束。扫描线圈让电子束左右摆动，扫过表面。</figcaption>
-</figure>
+<div data-fig="sem"></div>
 
 ## 怎么工作
 

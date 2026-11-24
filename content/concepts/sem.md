@@ -10,32 +10,7 @@ tags: [측정 장비, SEM]
 
 주사전자현미경(SEM, scanning electron microscope)은 **전자빔을 시료 표면에 한 점씩 주사(scan)하고, 각 점에서 나온 신호의 세기를 밝기로 바꿔** 영상을 만드는 장비다.
 
-<figure class="fig">
-<svg viewBox="0 0 330 290" role="img" aria-label="SEM의 구조. 위에서부터 전자총, 집속 렌즈, 주사 코일, 대물 렌즈, 시료, 옆에 검출기">
-<g fill="none" stroke="currentColor" stroke-width="1.5">
-<path d="M150 14h30l-8 18h-14z"/>
-<rect x="100" y="62" width="44" height="16"/><rect x="186" y="62" width="44" height="16"/>
-<rect x="118" y="118" width="26" height="12"/><rect x="186" y="118" width="26" height="12"/>
-<rect x="96" y="168" width="48" height="18"/><rect x="186" y="168" width="48" height="18"/>
-<rect x="110" y="240" width="110" height="14"/>
-<rect x="262" y="192" width="46" height="22"/>
-<path d="M174 236Q212 204 258 203M250 198l9 5l-9 6"/>
-</g>
-<g fill="none" stroke="var(--accent)" stroke-width="1.5">
-<path d="M165 32V186L150 238"/>
-<path d="M165 186L165 238M165 186L182 238" stroke-dasharray="3 4"/>
-</g>
-<g font-size="12" fill="currentColor">
-<text x="92" y="27" text-anchor="end">전자총</text>
-<text x="92" y="74" text-anchor="end">집속 렌즈</text>
-<text x="92" y="128" text-anchor="end">주사 코일</text>
-<text x="88" y="181" text-anchor="end">대물 렌즈</text>
-<text x="165" y="272" text-anchor="middle">시료</text>
-<text x="285" y="184" text-anchor="middle">검출기</text>
-</g>
-</svg>
-<figcaption>SEM의 구조. 빨간 선이 전자빔이다. 주사 코일이 빔을 좌우로 흔들어 표면을 훑는다.</figcaption>
-</figure>
+<div data-fig="sem"></div>
 
 ## 어떻게 동작하나
 
