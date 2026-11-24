@@ -20,7 +20,7 @@ npm run build
 
 - `content/projects`, `content/blog`: one `slug.md` per entry (Korean, the source), with `slug.en.md` / `slug.zh.md` next to it. Frontmatter fields are listed in `lib/content.ts`.
 - `content/about*.md`: the About page.
-- `lib/resume.ts`: the resume page; `npm run resume:pdf` (dev server running) rewrites `public/resume.pdf`.
+- `lib/resume.ts`: the resume page; `RESUME_URL=https://cuzmayb.vercel.app npm run resume:pdf` rewrites `public/resume*.pdf` from the deployed pages. Links inside the PDF take the address it was printed from, so printing from `localhost` (the default) leaves localhost links.
 - Project frontmatter `sources:` (list of `label`, optional `href`): papers, reports, code and data behind the numbers, shown as a Sources section.
 - `lib/site.ts` `featured`: the project shown on the home page.
 - `lib/site.ts`: links (GitHub, email, LinkedIn, giscus, intro video). A `null` value hides that link everywhere.
