@@ -1081,16 +1081,25 @@ body:has(.top[data-hidden="true"]) .pj-nav[data-stuck="true"] { transform: trans
 
 /* ---- p-n junction band diagram under the first screen (lib/pn.tsx) ---- */
 .pn { position: relative; }
-.pn.iso.cz { --anatomy-paper: var(--bg); } /* sits on the page, not on a card */
 .pn > svg { display: block; width: 100%; height: auto; }
-.pn-bead { stroke: var(--anatomy-hi); stroke-width: 1.2; vector-effect: non-scaling-stroke; }
-.pn-bead-e { fill: var(--anatomy-hi); }
-.pn-bead-h { fill: var(--anatomy-paper); }
-.iso-line.pn-wire { stroke: var(--anatomy-red); stroke-width: 1; stroke-dasharray: 4 4; }
-.iso-wire-end.pn-wire-end { stroke: var(--anatomy-red); }
-.pn-flash { fill: var(--anatomy-red); filter: blur(3px); }
-/* Moving, the strip is bare. Paused it is the textbook diagram: carriers at rest, levels named. */
-.pn-name { display: none; }
+.pn-band, .pn-fermi, .pn-dot { fill: none; vector-effect: non-scaling-stroke; }
+.pn-band { stroke: var(--fg); stroke-width: 1.5; }
+.pn-fermi { stroke: var(--accent); stroke-width: 1; stroke-dasharray: 4 4; }
+.pn-dot { stroke: var(--fg); stroke-width: 8; stroke-linecap: round; }
+.pn-hollow { stroke: var(--bg); stroke-width: 5; }
+.pn-arrow { fill: none; stroke: var(--fg); stroke-width: 1.5; vector-effect: non-scaling-stroke; }
+.pn-head { fill: var(--fg); }
+/* Carriers: the outer group follows its path (a straight run along the band, then three short steps round the bend into the gap),
+   the inner group fades in over the first tenth and out over the last eighth. Eight of them, offset by a negative delay. */
+.pn-car { animation: pn-e 5.2s linear infinite; }
+.pn-car.pn-h { animation-name: pn-h; }
+.pn-car > g { animation: pn-fade 5.2s linear infinite; animation-delay: inherit; }
+@keyframes pn-e { 0% { transform: translate(748px, 25px); } 86.2% { transform: translate(430px, 25px); } 92.1% { transform: translate(408.3px, 26.5px); } 96.4% { transform: translate(392.8px, 30.3px); } 100% { transform: translate(381px, 36px); } }
+@keyframes pn-h { 0% { transform: translate(12px, 47px); } 86.2% { transform: translate(330px, 47px); } 92.1% { transform: translate(350.8px, 45.5px); } 96.4% { transform: translate(366.4px, 41.6px); } 100% { transform: translate(379px, 36px); } }
+@keyframes pn-fade { 0% { opacity: 0; } 10%, 88% { opacity: 1; } 100% { opacity: 0; } }
+/* Moving, the strip is bare. Paused (or with motion reduced) it is the textbook diagram: carriers at rest, levels named. */
+.pn-still, .pn-name { display: none; }
+.pn[data-paused="true"] .pn-still { display: inline; }
 .pn[data-paused="true"] .pn-name { display: block; }
 .pn-name { position: absolute; transform: translateY(-100%); padding: 0 4px 2px; font-size: 13px; line-height: 1; color: var(--muted); }
 .pn-name sub { font-size: 0.75em; }
@@ -1137,7 +1146,7 @@ body:has(.top[data-hidden="true"]) .pj-nav[data-stuck="true"] { transform: trans
    spread are all cuts. The small drawings that move in place (the p-n carriers, the notepad, the runner, the decision loop)
    keep playing: they are the content of their spot, not a transition, and the p-n strip has its own pause button. ---- */
 @media (prefers-reduced-motion: reduce) {
-  *:not(:is(.ab-pic, .ab-loop) *), *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+  *:not(:is(.ab-pic, .ab-loop, .pn-move) *), *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
   /* The poem card still waits 300 ms before closing, as a step with no fade, so the pointer can travel from the word onto it. */
   .poem-card { transition: opacity 0s 300ms, visibility 0s 300ms !important; transform: none; }
   .poem:hover .poem-card, .poem:focus .poem-card, .poem:focus-within .poem-card { transition-delay: 0s !important; }
