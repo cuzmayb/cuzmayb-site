@@ -11,7 +11,7 @@ export async function generateMetadata({ params }: P): Promise<Metadata> {
 type Item = { k: Tr; v: Tr };
 type Section = { h: Tr; items: Item[] };
 
-// Keep in step with what the code really does: lib/prefs.tsx, app/[lang]/layout.tsx (site.gaId).
+// Keep in step with what the code really does: app/[lang]/layout.tsx (site.gaId).
 const SECTIONS: Section[] = [
   {
     h: { ko: "수집·이용하는 정보", en: "What is collected and used", zh: "收集和使用的信息" },
@@ -21,10 +21,6 @@ const SECTIONS: Section[] = [
         v: site.gaId
           ? { ko: "Google Analytics로 본 페이지, 들어온 경로, 머문 시간, 대략적인 지역(국가·도시), 브라우저와 기기 종류를 수집합니다. 이를 위해 Google Analytics 쿠키(_ga로 시작)를 브라우저에 저장해 같은 브라우저의 재방문을 구분합니다. 이름, 이메일 같은 개인을 직접 알아볼 정보는 수집하지 않고, 광고에 쓰지 않습니다. 광고와 회원 가입은 없습니다.", en: "Google Analytics collects the pages you view, where you came from, time on page, approximate location (country and city), and browser and device type. To do this it stores Google Analytics cookies (starting with _ga) in your browser, which tell repeat visits from the same browser apart. Nothing that names you directly, such as a name or email, is collected, and the data is not used for ads. There are no ads and no accounts.", zh: "通过 Google Analytics 收集浏览的页面、来源、停留时间、大致地区（国家、城市）以及浏览器和设备类型。为此会在浏览器中保存 Google Analytics Cookie（以 _ga 开头），用于区分同一浏览器的再次访问。不收集姓名、邮箱等可直接识别个人的信息，也不用于广告。没有广告，也没有账号注册。" }
           : { ko: "하지 않습니다. 분석 도구, 광고, 추적 쿠키가 없고 회원 가입도 없습니다.", en: "None. There are no analytics tools, ads or tracking cookies, and no accounts.", zh: "不做。没有分析工具、广告或跟踪 Cookie，也没有账号注册。" },
-      },
-      {
-        k: { ko: "사이트 설정", en: "Site settings", zh: "站点设置" },
-        v: { ko: "야간 모드 선택은 이 브라우저의 localStorage에만 저장합니다. 언어는 주소로 정해지고 따로 저장하지 않습니다. 이 설정에는 쿠키를 쓰지 않고 서버로 보내지 않습니다.", en: "Your night-mode choice is kept only in this browser's localStorage. The language comes from the address and is not stored. No cookie is used for it and nothing is sent to a server.", zh: "夜间模式的选择只保存在本浏览器的 localStorage 中。语言由网址决定，不另行保存。此设置不使用 Cookie，也不发送到服务器。" },
       },
     ],
   },
@@ -52,12 +48,12 @@ const SECTIONS: Section[] = [
             v: { ko: "브라우저 설정에서 쿠키를 막거나, Google의 Google Analytics 차단 부가기능(tools.google.com/dlpage/gaoptout)을 설치하면 방문 통계에서 빠집니다. 사이트 이용에는 지장이 없습니다.", en: "Block cookies in your browser settings, or install Google's Analytics opt-out add-on (tools.google.com/dlpage/gaoptout), and your visits are left out. The site works the same either way.", zh: "在浏览器设置中阻止 Cookie，或安装 Google 的 Analytics 停用插件（tools.google.com/dlpage/gaoptout），即可不被统计。不影响使用本站。" },
           }]
         : []),
-      {
-        k: { ko: "지우기", en: "Clearing", zh: "清除" },
-        v: site.gaId
-          ? { ko: "브라우저에서 이 사이트의 데이터를 지우면 야간 모드 설정과 Google Analytics 쿠키가 함께 사라집니다.", en: "Clearing this site's data in your browser removes the night-mode setting and the Google Analytics cookies.", zh: "在浏览器中清除本站数据后，夜间模式设置和 Google Analytics Cookie 会一并删除。" }
-          : { ko: "브라우저에서 이 사이트의 데이터를 지우면 야간 모드 설정이 사라집니다.", en: "Clearing this site's data in your browser removes the night-mode setting.", zh: "在浏览器中清除本站数据后，夜间模式设置会被删除。" },
-      },
+      ...(site.gaId
+        ? [{
+            k: { ko: "지우기", en: "Clearing", zh: "清除" },
+            v: { ko: "브라우저에서 이 사이트의 데이터를 지우면 Google Analytics 쿠키도 함께 사라집니다.", en: "Clearing this site's data in your browser also removes the Google Analytics cookies.", zh: "在浏览器中清除本站数据后，Google Analytics Cookie 也会一并删除。" },
+          }]
+        : []),
       {
         k: { ko: "문의와 요청", en: "Questions and requests", zh: "咨询与请求" },
         v: { ko: "서버에 개인별로 저장하는 기록은 없습니다. 문의나 요청은 아래 이메일로 보내 주세요.", en: "No per-person record is stored on the server. If you still have a question or a request, write to the address below.", zh: "服务器上不保存针对个人的记录。如仍有疑问或请求，请发送至下方邮箱。" },
