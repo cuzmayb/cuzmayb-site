@@ -19,6 +19,7 @@ export function pageMeta(lang: Lang, path: string, m: { title?: Tr; description?
       canonical: href(lang, path),
       languages: { ...Object.fromEntries(LANGS.map((l) => [LANG_TAG[l], href(l, path)])), "x-default": href("ko", path) },
     },
-    openGraph: { siteName: "cuzmayb", locale: OG_LOCALE[lang], ...(m.article ? { type: "article", publishedTime: m.article } : { type: "website" }) },
+    // The card image (app/opengraph-image.tsx) sits outside [lang], so it is not picked up by convention: link it here.
+    openGraph: { siteName: "cuzmayb", url: href(lang, path), images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: "cuzmayb" }], locale: OG_LOCALE[lang], ...(m.article ? { type: "article", publishedTime: m.article } : { type: "website" }) },
   };
 }
