@@ -1,7 +1,8 @@
 // One place for links. A null value hides that link everywhere.
 export const site = {
-  // Public address, used for absolute links (sitemap, robots, link previews). Set NEXT_PUBLIC_SITE_URL when deploying.
-  url: (process.env.NEXT_PUBLIC_SITE_URL ?? (process.env.VERCEL_PROJECT_PRODUCTION_URL ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}` : "http://localhost:3000")).replace(/\/$/, ""),
+  // Public address, used for absolute links (sitemap, robots, link previews). Any Vercel build uses the real domain;
+  // NEXT_PUBLIC_SITE_URL overrides it.
+  url: (process.env.NEXT_PUBLIC_SITE_URL ?? (process.env.VERCEL ? "https://cuzmayb.com" : "http://localhost:3000")).replace(/\/$/, ""),
   github: "https://github.com/cuzmayb",
   email: "cuzmayb@gmail.com",
   linkedin: "https://www.linkedin.com/in/cuzmayb" as string | null,
