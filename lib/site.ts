@@ -5,7 +5,7 @@ export const site = {
   github: "https://github.com/cuzmayb",
   email: "cuzmayb@gmail.com",
   linkedin: "https://www.linkedin.com/in/cuzmayb" as string | null,
-  resume: "/resume.pdf" as string | null, // regenerate after deploying: RESUME_URL=https://cuzmayb.vercel.app npm run resume:pdf (printing from localhost leaves localhost links)
+  resume: "/resume.pdf" as string | null, // regenerate after deploying: RESUME_URL=https://cuzmayb.com npm run resume:pdf (printing from localhost leaves localhost links)
   // Guestbook uses giscus (GitHub Discussions). Fill from https://giscus.app once the repo is public.
   // Google Analytics 4 measurement ID ("G-XXXXXXXXXX", Admin > Data streams). Null leaves analytics off.
   gaId: "G-2CQWPQRVDH" as string | null,

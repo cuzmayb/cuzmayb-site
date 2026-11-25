@@ -48,6 +48,8 @@ const nextConfig: NextConfig = {
   // Old addresses keep working. The exploded view used to live at /mk1.
   async redirects() {
     return [
+      // The old Vercel address sends everyone to the real domain, path kept.
+      { source: "/:path*", has: [{ type: "host", value: "cuzmayb.vercel.app" }], destination: "https://cuzmayb.com/:path*", permanent: true },
       { source: "/mk1", destination: "/package", permanent: true },
       { source: "/:lang(ko|en|zh)/mk1", destination: "/:lang/package", permanent: true },
     ];
