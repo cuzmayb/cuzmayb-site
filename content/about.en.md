@@ -38,10 +38,6 @@ Words I heard in a lecture by Kinam Kim. I keep them as the attitude I want to l
 
 I try not to lose the excitement in front of a new problem.
 
-#### Admitting things honestly
-
-I am stubborn, and I am not a good speaker. I want to grow by admitting what I lack instead of hiding it.
-
 </div>
 
 <div class="ab-group">

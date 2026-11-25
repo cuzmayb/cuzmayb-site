@@ -92,6 +92,10 @@ main { max-width: var(--max); margin: 0 auto; padding: 32px 16px 80px; }
 .home > .home-line { --rise: 8px; animation-delay: 90ms; }
 .home > .home-nav { --rise: 6px; animation-delay: 120ms; }
 .home > .contacts { --rise: 0px; animation-delay: 140ms; }
+.home > .home-pkg { animation: home-in 520ms var(--ease-out) 160ms backwards; --rise: 0px; }
+.home-pkg { margin-top: 20px; padding: 8px 16px; border: 1px solid var(--line); border-radius: 999px; font-size: 14px; line-height: 22px; color: var(--muted); transition: color var(--d-color) ease-out, border-color var(--d-color) ease-out; }
+.home-pkg:hover { color: var(--accent); border-color: var(--accent); }
+@media (hover: hover) { .home-pkg:hover .arrow { transform: translateX(3px); } }
 @keyframes home-in { from { opacity: 0; transform: translateY(var(--rise, 8px)); } }
 .page-in:has(> .home) { animation: none; } /* the first screen brings itself in; a second fade over it would be two entrances */
 .home-nav {
@@ -239,7 +243,7 @@ h1.page, .prose h1 { font-size: clamp(26px, 2.5vw, 32px); line-height: 1.3; lett
 
 @media (prefers-reduced-motion: reduce) {
   :is(.pills a, .home-nav a, .contacts a, .back):active { transform: none; }
-  .contacts a:hover svg, .back:hover .arrow, .related a:hover .arrow { transform: none; }
+  .contacts a:hover svg, .back:hover .arrow, .related a:hover .arrow, .home-pkg:hover .arrow { transform: none; }
 }
 
 /* ---- Night mode (opt-in; light is the default) ---- */

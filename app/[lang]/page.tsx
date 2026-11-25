@@ -31,6 +31,9 @@ export default function Home() {
       <p className="home-line"><T ko="반도체 공부와 프로젝트 기록" en="Semiconductor studies and project notes" zh="半导体学习与项目记录" /></p>
       <PillNav className="home-nav" />
       <Contacts />
+      <Link href="/package" className="home-pkg">
+        <T ko="GPU-HBM 패키지 모식도" en="GPU-HBM package schematic" zh="GPU-HBM 封装示意图" /> <span className="arrow" aria-hidden="true">→</span>
+      </Link>
       <HomeFx />
     </section>
     <Pn />
