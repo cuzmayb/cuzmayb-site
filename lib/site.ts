@@ -7,6 +7,8 @@ export const site = {
   linkedin: "https://www.linkedin.com/in/cuzmayb" as string | null,
   resume: "/resume.pdf" as string | null, // regenerate after deploying: RESUME_URL=https://cuzmayb.vercel.app npm run resume:pdf (printing from localhost leaves localhost links)
   // Guestbook uses giscus (GitHub Discussions). Fill from https://giscus.app once the repo is public.
+  // Google Analytics 4 measurement ID ("G-XXXXXXXXXX", Admin > Data streams). Null leaves analytics off.
+  gaId: "G-2CQWPQRVDH" as string | null,
   giscus: null as null | { repo: string; repoId: string; category: string; categoryId: string },
   // Logo click opens this clip: a YouTube link (watch, youtu.be or shorts URL; ?t= / &start= is kept)
   // or a video file you have the rights to, placed in public/ (e.g. "/intro.mp4").

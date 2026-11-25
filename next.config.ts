@@ -7,11 +7,11 @@ const isDev = process.env.NODE_ENV === "development";
 // (docs: 01-app/02-guides/content-security-policy.md, "Without Nonces"). Add a host here when a new outside service is used.
 const csp = [
   "default-src 'self'",
-  `script-src 'self' 'unsafe-inline' https://giscus.app${isDev ? " 'unsafe-eval'" : ""}`, // giscus: guestbook widget, when enabled
+  `script-src 'self' 'unsafe-inline' https://giscus.app https://www.googletagmanager.com${isDev ? " 'unsafe-eval'" : ""}`, // giscus: guestbook widget; googletagmanager: Google Analytics, when site.gaId is set
   "style-src 'self' 'unsafe-inline'",
   "font-src 'self'", // fonts are bundled (Pretendard from npm, Space Grotesk through next/font)
-  "img-src 'self' data: blob:",
-  `connect-src 'self'${isDev ? " ws:" : ""}`,
+  "img-src 'self' data: blob: https://*.google-analytics.com https://*.googletagmanager.com",
+  `connect-src 'self' https://*.google-analytics.com https://*.analytics.google.com https://*.googletagmanager.com${isDev ? " ws:" : ""}`,
   "frame-src https://giscus.app https://www.youtube-nocookie.com", // guestbook widget, intro video
   "frame-ancestors 'none'", // nobody can put this site inside a frame (clickjacking)
   "object-src 'none'",

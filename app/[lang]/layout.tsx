@@ -52,6 +52,11 @@ export default async function RootLayout({ children, params }: { children: React
           </div>
         </footer>
         <Toaster />
+        {/* Google Analytics 4; page views on client navigation come from GA's history-change tracking. Described on /privacy. */}
+        {site.gaId && <>
+          <script async src={`https://www.googletagmanager.com/gtag/js?id=${site.gaId}`} />
+          <script dangerouslySetInnerHTML={{ __html: `window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date());gtag("config",${JSON.stringify(site.gaId)})` }} />
+        </>}
         </LangProvider>
       </body>
     </html>
