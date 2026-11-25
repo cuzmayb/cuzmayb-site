@@ -51,6 +51,13 @@ export function HomeMark() {
     );
   };
 
+  // A double click on empty space (HomeFx) bonds too.
+  useEffect(() => {
+    const on = () => bond();
+    window.addEventListener("cm-bond", on);
+    return () => window.removeEventListener("cm-bond", on);
+  });
+
   const onDown = (e: React.PointerEvent) => {
     if (e.button !== 0) return;
     try { e.currentTarget.setPointerCapture(e.pointerId); } catch {} // release outside the logo still ends the press
