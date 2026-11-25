@@ -358,9 +358,6 @@ html { scrollbar-color: var(--line) transparent; accent-color: var(--accent); ca
   position: relative; max-width: calc(100% - 32px); transform-origin: 50% 100%;
   opacity: 0; transition: opacity var(--d-color) ease-out;
 }
-.hint-bubble { display: grid; }
-.hint-line { grid-area: 1 / 1; text-align: center; opacity: 0; transition: opacity var(--d-move) ease-out; }
-.hint-line[data-on="true"] { opacity: 1; }
 /* The note and the toast share one slot; while a toast is up the note steps aside. */
 .hint:has(.toast) .hint-bubble { opacity: 0; }
 .hint[data-show="true"] .hint-bubble { opacity: 1; animation: bubble-in var(--d-move) var(--ease-out); }
