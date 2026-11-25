@@ -5,15 +5,16 @@ import { useL } from "@/lib/use-lang";
 
 // Energy band diagram of a p-n junction, as a strip under the first screen. The conduction band (upper line) and the
 // valence band (lower line) step down from the p side to the n side; the dashed line is the Fermi level, flat at
-// equilibrium. Electrons run along the conduction band from the right, holes along the valence band from the left,
-// and they meet in the gap at the junction and vanish (recombination). Paused, it is the plain textbook diagram:
+// equilibrium. Electrons run along the conduction band from the right, holes along the valence band from the left;
+// at the junction the electron drops from Ec onto the hole at Ev and both vanish (recombination), giving off about Eg.
+// They never meet at the Fermi level: it is a statistical reference, not a place carriers gather. Paused, it is the plain textbook diagram:
 // carriers at rest and the three levels named. The carriers move by CSS keyframes (.pn-car in globals.css) that trace
 // the two paths below; SVG's own animation elements (SMIL) were dropped because iOS Safari did not play them.
 const EC = "M0 14H320C370 14 390 30 440 30H760";
 const EV = "M0 42H320C370 42 390 58 440 58H760";
 // Paths the keyframes pn-e and pn-h follow (kept here as the reference for those numbers):
-//   electron  M748 25 H430 C405 25 392 30 381 36   along Ec, then down into the gap
-//   hole      M12 47 H330 C355 47 368 42 379 36    along Ev, then up into the gap
+//   electron  5 above Ec, from x 748 to 380 (Ec there is 22), then straight down to 55
+//   hole      5 below Ev, from x 12 to 380 (Ev there is 50), waits there for the electron
 const STARTS = [0, 1.3, 2.6, 3.9]; // seconds into the 5.2 s loop at which each carrier sets off
 
 // A carrier is a near-zero-length round-capped stroke, so it stays a round dot of fixed size at any width.
@@ -42,7 +43,14 @@ export function Pn() {
         <path className="pn-band" d={EV} />
         <path className="pn-fermi" d="M0 36H760" />
         {/* Unmounted while paused, so the animation really stops rather than running unseen. */}
-        {!paused && <g className="pn-move">{STARTS.map((t) => mover("e", t))}{STARTS.map((t) => mover("h", t))}</g>}
+        {!paused && (
+          <g className="pn-move">
+            {STARTS.map((t) => mover("e", t))}
+            {STARTS.map((t) => mover("h", t))}
+            {/* Where the pair recombines, a ring spreads: the energy given off. */}
+            {STARTS.map((t) => <circle key={t} className="pn-flash" cx="380" cy="55" r="6" style={{ animationDelay: `${-t}s` }} />)}
+          </g>
+        )}
         {/* The carriers at rest: shown when paused, and instead of the moving ones when motion is reduced. */}
         <g className="pn-still">
           {[500, 570, 640, 710].map((x) => <g key={x} transform={`translate(${x} 25)`}>{dot("e")}</g>)}
