@@ -52,6 +52,9 @@ const nextConfig: NextConfig = {
       { source: "/:path*", has: [{ type: "host", value: "cuzmayb.vercel.app" }], destination: "https://cuzmayb.com/:path*", permanent: true },
       { source: "/mk1", destination: "/package", permanent: true },
       { source: "/:lang(ko|en|zh)/mk1", destination: "/:lang/package", permanent: true },
+      // The FCC concept page was folded into the FCC, BCC page.
+      { source: "/concepts/fcc", destination: "/concepts/fcc-bcc", permanent: true },
+      { source: "/:lang(ko|en|zh)/concepts/fcc", destination: "/:lang/concepts/fcc-bcc", permanent: true },
     ];
   },
   async headers() {
