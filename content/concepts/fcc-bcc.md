@@ -19,41 +19,44 @@ FCC와 BCC를 처음 공부할 때 원자 수, coordination number(배위수), A
 
 ## 두 구조의 모양
 
-FCC(face-centered cubic, 면심입방)는 정육면체 unit cell(단위정)의 꼭짓점 8곳과 면 6곳의 중심에 원자가 있다.
+FCC(face-centered cubic, 면심입방)는 정육면체 unit cell(단위정)의 꼭짓점 8곳과 면 6곳의 중심에 원자가 있다. BCC(body-centered cubic, 체심입방)는 꼭짓점 8곳과 정육면체 한가운데 1곳에 원자가 있다.
 
 <figure class="fig">
-<svg viewBox="0 0 330 240" role="img" aria-label="FCC 단위정. 꼭짓점 원자 여덟 개와 면 중심 원자 여섯 개">
+<svg viewBox="0 0 680 270" style="width:min(680px,100%)" role="img" aria-label="왼쪽 FCC 단위정: 꼭짓점 원자 여덟 개와 면 중심 원자 여섯 개, 앞면 대각선 표시. 오른쪽 BCC 단위정: 꼭짓점 원자 여덟 개와 체심 원자 한 개, 체대각선 표시">
 <g fill="none" stroke="currentColor" stroke-width="1.5">
 <path d="M130 155H270M130 155V15M60 200L130 155" stroke-dasharray="4 4" opacity="0.55"/>
 <path d="M60 200H200V60H60ZM200 200L270 155V15L200 60M60 60L130 15H270"/>
+<path d="M60 200L200 60M60 60L200 200" stroke="var(--accent)" stroke-dasharray="2 4" opacity="0.8"/>
+<path d="M60 60L270 15M130 15L200 60" stroke="var(--accent)" stroke-dasharray="2 4" opacity="0.35"/>
+</g>
+<g fill="var(--accent)" opacity="0.4">
+<circle cx="200" cy="85" r="10"/><circle cx="95" cy="107.5" r="10"/><circle cx="165" cy="177.5" r="10"/>
 </g>
 <g fill="var(--accent)">
-<circle cx="130" cy="130" r="10"/><circle cx="200" cy="85" r="10"/><circle cx="95" cy="107.5" r="10"/><circle cx="235" cy="107.5" r="10"/><circle cx="165" cy="37.5" r="10"/><circle cx="165" cy="177.5" r="10"/>
+<circle cx="130" cy="130" r="10"/><circle cx="235" cy="107.5" r="10"/><circle cx="165" cy="37.5" r="10"/>
 </g>
+<circle cx="130" cy="155" r="10" fill="currentColor" opacity="0.4"/>
 <g fill="currentColor">
-<circle cx="60" cy="200" r="10"/><circle cx="200" cy="200" r="10"/><circle cx="200" cy="60" r="10"/><circle cx="60" cy="60" r="10"/><circle cx="130" cy="155" r="10"/><circle cx="270" cy="155" r="10"/><circle cx="270" cy="15" r="10"/><circle cx="130" cy="15" r="10"/>
+<circle cx="60" cy="200" r="10"/><circle cx="200" cy="200" r="10"/><circle cx="200" cy="60" r="10"/><circle cx="60" cy="60" r="10"/><circle cx="270" cy="155" r="10"/><circle cx="270" cy="15" r="10"/><circle cx="130" cy="15" r="10"/>
 </g>
 <text x="130" y="228" font-size="13" text-anchor="middle" fill="currentColor">a</text>
-</svg>
-<figcaption>FCC unit cell. 남색은 꼭짓점 원자, 빨강은 면 중심 원자. 원자는 면 대각선 방향으로 맞닿는다. 원자 크기는 보기 쉽게 줄여 그렸다.</figcaption>
-</figure>
-
-BCC(body-centered cubic, 체심입방)는 꼭짓점 8곳과 정육면체 한가운데 1곳에 원자가 있다.
-
-<figure class="fig">
-<svg viewBox="0 0 330 240" role="img" aria-label="BCC 단위정. 꼭짓점 원자 여덟 개와 체심 원자 한 개, 체대각선 표시">
+<text x="165" y="258" font-size="15" text-anchor="middle" font-weight="600" fill="currentColor">FCC</text>
+<g transform="translate(340 0)">
 <g fill="none" stroke="currentColor" stroke-width="1.5">
 <path d="M130 155H270M130 155V15M60 200L130 155" stroke-dasharray="4 4" opacity="0.55"/>
 <path d="M60 200H200V60H60ZM200 200L270 155V15L200 60M60 60L130 15H270"/>
 <path d="M60 200L270 15" stroke="var(--accent)" stroke-dasharray="2 4" opacity="0.8"/>
 </g>
 <circle cx="165" cy="107.5" r="10" fill="var(--accent)"/>
+<circle cx="130" cy="155" r="10" fill="currentColor" opacity="0.4"/>
 <g fill="currentColor">
-<circle cx="60" cy="200" r="10"/><circle cx="200" cy="200" r="10"/><circle cx="200" cy="60" r="10"/><circle cx="60" cy="60" r="10"/><circle cx="130" cy="155" r="10"/><circle cx="270" cy="155" r="10"/><circle cx="270" cy="15" r="10"/><circle cx="130" cy="15" r="10"/>
+<circle cx="60" cy="200" r="10"/><circle cx="200" cy="200" r="10"/><circle cx="200" cy="60" r="10"/><circle cx="60" cy="60" r="10"/><circle cx="270" cy="155" r="10"/><circle cx="270" cy="15" r="10"/><circle cx="130" cy="15" r="10"/>
 </g>
 <text x="130" y="228" font-size="13" text-anchor="middle" fill="currentColor">a</text>
+<text x="165" y="258" font-size="15" text-anchor="middle" font-weight="600" fill="currentColor">BCC</text>
+</g>
 </svg>
-<figcaption>BCC unit cell. 남색은 꼭짓점 원자, 빨강은 체심 원자. 원자는 점선으로 그린 체대각선(⟨111⟩) 방향으로 맞닿는다.</figcaption>
+<figcaption>남색은 꼭짓점 원자, 빨강은 면 중심(FCC)·체심(BCC) 원자. 회색 점선 모서리와 흐린 원자는 뒤쪽에 가려진 것이다. 빨간 점선은 원자가 맞닿는 방향으로, FCC는 면 대각선(⟨110⟩), BCC는 체대각선(⟨111⟩)이다. 원자 크기는 보기 쉽게 줄여 그렸다.</figcaption>
 </figure>
 
 ## 숫자로 보기
@@ -62,9 +65,9 @@ BCC(body-centered cubic, 체심입방)는 꼭짓점 8곳과 정육면체 한가�
 |---|---|---|
 | unit cell 안의 원자 수 | 8 × 1/8 + 6 × 1/2 = 4 | 8 × 1/8 + 1 = 2 |
 | coordination number | 12 | 8 |
-| 원자가 맞닿는 방향 | 면 대각선: √2 a = 4r | 체대각선: √3 a = 4r |
-| lattice parameter(격자상수)와 원자 반지름 | a = 2√2 r | a = 4r/√3 |
-| APF | π/(3√2) ≈ 0.74 | π√3/8 ≈ 0.68 |
+| 원자가 맞닿는 방향 | 면 대각선: √<span class="rt">2</span> a = 4r | 체대각선: √<span class="rt">3</span> a = 4r |
+| lattice parameter(격자상수)와 원자 반지름 | a = 2√<span class="rt">2</span> r | a = 4r/√<span class="rt">3</span> |
+| APF | π/(3√<span class="rt">2</span>) ≈ 0.74 | π√<span class="rt">3</span>/8 ≈ 0.68 |
 | close-packed plane | {111} | 없음 ({110}이 가장 조밀하지만 최밀면은 아님) |
 | close-packed direction | ⟨110⟩ | ⟨111⟩ |
 | 주 slip system | {111}⟨110⟩ 12개 | {110}⟨111⟩ 12개, {112}·{123}까지 치면 48개 |
@@ -73,8 +76,8 @@ BCC(body-centered cubic, 체심입방)는 꼭짓점 8곳과 정육면체 한가�
 
 APF는 unit cell 부피 가운데 원자가 차지하는 비율이다.
 
-- FCC: 4 × (4/3)πr³ ÷ (2√2 r)³ = π/(3√2) ≈ **0.74**. 같은 크기의 공을 쌓아서 얻을 수 있는 가장 높은 값이다.
-- BCC: 2 × (4/3)πr³ ÷ (4r/√3)³ = π√3/8 ≈ **0.68**
+- FCC: 4 × (4/3)πr³ ÷ (2√<span class="rt">2</span> r)³ = π/(3√<span class="rt">2</span>) ≈ **0.74**. 같은 크기의 공을 쌓아서 얻을 수 있는 가장 높은 값이다.
+- BCC: 2 × (4/3)πr³ ÷ (4r/√<span class="rt">3</span>)³ = π√<span class="rt">3</span>/8 ≈ **0.68**
 
 ### 반도체 배선·패키징에 쓰이는 금속
 
@@ -161,12 +164,12 @@ w, 곧 d가 크고 b가 작을수록 exponential 항이 빠르게 작아진다. 
 
 | | slip system | d | b | d/b |
 |---|---|---|---|---|
-| FCC | {111}⟨110⟩ | a/√3 | a/√2 | √(2/3) ≈ 0.816 |
-| BCC | {110}⟨111⟩ | a/√2 | √3a/2 | √(2/3) ≈ 0.816 |
+| FCC | {111}⟨110⟩ | a/√<span class="rt">3</span> | a/√<span class="rt">2</span> | √<span class="rt">2/3</span> ≈ 0.816 |
+| BCC | {110}⟨111⟩ | a/√<span class="rt">2</span> | √<span class="rt">3</span>a/2 | √<span class="rt">2/3</span> ≈ 0.816 |
 
 두 값이 정확히 같다. 위 식대로라면 Peierls stress도 비슷해야 한다. 그런데 실제 BCC 금속의 저온 flow stress(유동 응력)는 FCC보다 훨씬 크고 온도에 민감하다. 차이는 dislocation core(전위 중심부)의 모양에서 나온다. Peierls-Nabarro 식의 가정이 FCC에는 맞고 BCC에는 맞지 않는 것이다.
 
-- **FCC.** close-packed plane {111} 위에서 dislocation이 두 개의 Shockley partial dislocation으로 갈라지고, 그 사이에 stacking fault(적층결함) 띠가 생긴다. partial의 Burgers vector는 a/√6으로 더 짧아서 d/b가 √2 ≈ 1.41로 커진다. core가 한 면 위에 납작하게 퍼져 있어(planar core) 그 면을 따라 쉽게 미끄러지고, 격자 저항이 작아 온도에 거의 영향받지 않는다.
+- **FCC.** close-packed plane {111} 위에서 dislocation이 두 개의 Shockley partial dislocation으로 갈라지고, 그 사이에 stacking fault(적층결함) 띠가 생긴다. partial의 Burgers vector는 a/√<span class="rt">6</span>으로 더 짧아서 d/b가 √<span class="rt">2</span> ≈ 1.41로 커진다. core가 한 면 위에 납작하게 퍼져 있어(planar core) 그 면을 따라 쉽게 미끄러지고, 격자 저항이 작아 온도에 거의 영향받지 않는다.
 - **BCC.** 납작하게 퍼질 close-packed plane이 없다. ½⟨111⟩ screw dislocation의 core는 ⟨111⟩ 축을 공유하는 {110} 세 면 쪽으로 입체적으로 퍼진다(non-planar core). 움직이려면 선 전체가 한 번에 넘어가지 못하고, 짧은 구간이 한 칸 튀어 나가는 kink-pair를 만든 뒤 그 kink가 옆으로 번지며 전진한다. 이 과정은 thermal activation(열활성화)에 기대기 때문에 온도가 낮아질수록 급격히 어려워진다.
 
 온도가 충분히 낮아지면 dislocation을 움직이는 데 필요한 응력이 균열이 자라는 응력(cleavage stress)보다 커진다. 그러면 늘어나기 전에 먼저 깨진다. 이게 DBTT다. FCC는 저온에서도 flow stress가 크게 오르지 않아, 균열 끝에서 dislocation이 계속 나와 응력을 풀어 준다. 그래서 이 전이가 거의 나타나지 않는다. 구조용 강(BCC)을 설계할 때 DBTT를 따로 관리하는 이유다.
@@ -198,7 +201,7 @@ APF 차이(0.74 대 0.68)는 ductility 차이를 설명하기엔 작다. 대신 
 <text x="390" y="208" font-size="12" text-anchor="middle" fill="currentColor">BCC octahedral site</text>
 <text x="390" y="225" font-size="12" text-anchor="middle" fill="currentColor">r/R = 0.155 (tetrahedral은 0.291)</text>
 </svg>
-<figcaption>Fe 원자 반지름 R을 같은 크기로 맞춘 단면. 빨간 원이 틈새에 들어갈 수 있는 가장 큰 원자, 점선 원이 탄소(r/R 약 0.6)다. 탄소는 어느 쪽에도 그냥은 안 들어가서 주변 Fe를 밀어내며 자리를 잡는다. FCC 쪽이 훨씬 덜 밀어내도 된다. BCC 단면은 위아래 원자가 a/2, 좌우 원자가 a/√2 떨어진 (1 −1 0)면이다.</figcaption>
+<figcaption>Fe 원자 반지름 R을 같은 크기로 맞춘 단면. 빨간 원이 틈새에 들어갈 수 있는 가장 큰 원자, 점선 원이 탄소(r/R 약 0.6)다. 탄소는 어느 쪽에도 그냥은 안 들어가서 주변 Fe를 밀어내며 자리를 잡는다. FCC 쪽이 훨씬 덜 밀어내도 된다. BCC 단면은 위아래 원자가 a/2, 좌우 원자가 a/√<span class="rt">2</span> 떨어진 (1 −1 0)면이다.</figcaption>
 </figure>
 
 반대로 탄소의 diffusion은 α-Fe에서 더 빠르다. 덜 빽빽한 구조라 interstitial site 사이를 건너가는 길이 열려 있기 때문이다. solid solubility는 FCC가, diffusion은 BCC가 유리한 셈이다.
