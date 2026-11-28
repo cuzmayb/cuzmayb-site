@@ -58,35 +58,35 @@ HCP는 축이 4개인 Miller-Bravais index(hkil)를 쓰고, i = −(h + k)다. �
 
 중심이 선이나 면 위에 정확히 있는 원자만 센다. 원자가 단면만 살짝 걸치는 경우는 세지 않는다. 선분 양 끝 원자는 반씩 들어온다. 면 조각의 꼭짓점 원자는 꼭짓점 각도만큼 들어오므로, 정사각형 꼭짓점은 ¼(90°/360°), 정삼각형 꼭짓점은 1/6(60°/360°)이다.
 
-격자상수와 원자 반지름 r의 관계는 FCC가 a = 2√<span class="rt">2</span> r, BCC가 a = 4r/√<span class="rt">3</span>이다.
+격자상수와 원자 반지름 r의 관계는 FCC가 a = 2<math><msqrt><mn>2</mn></msqrt></math> r, BCC가 a = 4r/<math><msqrt><mn>3</mn></msqrt></math>이다.
 
 | 구조 | 방향 | 벡터 길이 | 원자 수 | LD |
 |---|---|---|---|---|
-| FCC | [100] | a = 2√<span class="rt">2</span> r | 양 끝 ½ × 2 = 1 | 1/(2√<span class="rt">2</span> r) ≈ 0.354/r |
-| FCC | [110] | √<span class="rt">2</span> a = 4r | 양 끝 ½ × 2 + 면 중심 1 = 2 | 1/(2r) = 0.500/r |
-| BCC | [100] | a = 4r/√<span class="rt">3</span> | 1 | √<span class="rt">3</span>/(4r) ≈ 0.433/r |
-| BCC | [110] | √<span class="rt">2</span> a | 1 (체심은 면 대각선 위에 없음) | √<span class="rt">3</span>/(4√<span class="rt">2</span> r) ≈ 0.306/r |
-| BCC | [111] | √<span class="rt">3</span> a = 4r | 양 끝 ½ × 2 + 체심 1 = 2 | 1/(2r) = 0.500/r |
+| FCC | [100] | a = 2<math><msqrt><mn>2</mn></msqrt></math> r | 양 끝 ½ × 2 = 1 | 1/(2<math><msqrt><mn>2</mn></msqrt></math> r) ≈ 0.354/r |
+| FCC | [110] | <math><msqrt><mn>2</mn></msqrt></math> a = 4r | 양 끝 ½ × 2 + 면 중심 1 = 2 | 1/(2r) = 0.500/r |
+| BCC | [100] | a = 4r/<math><msqrt><mn>3</mn></msqrt></math> | 1 | <math><msqrt><mn>3</mn></msqrt></math>/(4r) ≈ 0.433/r |
+| BCC | [110] | <math><msqrt><mn>2</mn></msqrt></math> a | 1 (체심은 면 대각선 위에 없음) | <math><msqrt><mn>3</mn></msqrt></math>/(4<math><msqrt><mn>2</mn></msqrt></math> r) ≈ 0.306/r |
+| BCC | [111] | <math><msqrt><mn>3</mn></msqrt></math> a = 4r | 양 끝 ½ × 2 + 체심 1 = 2 | 1/(2r) = 0.500/r |
 
 1/(2r)는 원자가 일렬로 맞닿은 줄의 값이라 이보다 커질 수 없다. LD가 1/(2r)인 방향이 close-packed direction이다.
 
 | 구조 | 면 | 넓이 | 원자 수 | PD |
 |---|---|---|---|---|
 | FCC | (100) | a² = 8r² | 꼭짓점 ¼ × 4 + 면 중심 1 = 2 | 1/(4r²) = 0.250/r² |
-| FCC | (111) | 정삼각형, 한 변 4r: 4√<span class="rt">3</span> r² | 꼭짓점 1/6 × 3 + 변 중점 ½ × 3 = 2 | 1/(2√<span class="rt">3</span> r²) ≈ 0.289/r² |
+| FCC | (111) | 정삼각형, 한 변 4r: 4<math><msqrt><mn>3</mn></msqrt></math> r² | 꼭짓점 1/6 × 3 + 변 중점 ½ × 3 = 2 | 1/(2<math><msqrt><mn>3</mn></msqrt></math> r²) ≈ 0.289/r² |
 | BCC | (100) | a² = 16r²/3 | 꼭짓점 ¼ × 4 = 1 | 3/(16r²) ≈ 0.188/r² |
-| BCC | (110) | a × √<span class="rt">2</span> a = 16√<span class="rt">2</span> r²/3 | 꼭짓점 ¼ × 4 + 체심 1 = 2 | 3/(8√<span class="rt">2</span> r²) ≈ 0.265/r² |
+| BCC | (110) | a × <math><msqrt><mn>2</mn></msqrt></math> a = 16<math><msqrt><mn>2</mn></msqrt></math> r²/3 | 꼭짓점 ¼ × 4 + 체심 1 = 2 | 3/(8<math><msqrt><mn>2</mn></msqrt></math> r²) ≈ 0.265/r² |
 
-FCC (111)은 cube 안에서 꼭짓점 세 개를 잇는 정삼각형으로 센다. 세 변이 모두 면 대각선이라 길이가 √<span class="rt">2</span> a = 4r이고, 넓이는 (√<span class="rt">3</span>/4)(4r)² = 4√<span class="rt">3</span> r²다. 꼭짓점 원자 3개가 1/6씩, 변 가운데의 면 중심 원자 3개가 ½씩 들어와 모두 2개다.
+FCC (111)은 cube 안에서 꼭짓점 세 개를 잇는 정삼각형으로 센다. 세 변이 모두 면 대각선이라 길이가 <math><msqrt><mn>2</mn></msqrt></math> a = 4r이고, 넓이는 (<math><msqrt><mn>3</mn></msqrt></math>/4)(4r)² = 4<math><msqrt><mn>3</mn></msqrt></math> r²다. 꼭짓점 원자 3개가 1/6씩, 변 가운데의 면 중심 원자 3개가 ½씩 들어와 모두 2개다.
 
-1/(2√<span class="rt">3</span> r²)는 같은 크기 원을 평면에 가장 빽빽하게 깐 육각 배열의 값이다. 원 하나가 그 원에 외접하는 정육각형 넓이 2√<span class="rt">3</span> r²를 차지하기 때문이다. PD가 이 값인 면이 close-packed plane이다. 원자 크기가 다른 금속끼리는 r이 다르니, 구조의 기하만 비교할 때는 이 표처럼 1/r² 단위로 맞춘다.
+1/(2<math><msqrt><mn>3</mn></msqrt></math> r²)는 같은 크기 원을 평면에 가장 빽빽하게 깐 육각 배열의 값이다. 원 하나가 그 원에 외접하는 정육각형 넓이 2<math><msqrt><mn>3</mn></msqrt></math> r²를 차지하기 때문이다. PD가 이 값인 면이 close-packed plane이다. 원자 크기가 다른 금속끼리는 r이 다르니, 구조의 기하만 비교할 때는 이 표처럼 1/r² 단위로 맞춘다.
 
 ## 구조별 close-packed plane과 direction
 
 | 구조 | close-packed plane | close-packed direction | 면 하나에 든 그 방향 수 | 주 slip system(슬립계) |
 |---|---|---|---|---|
-| FCC | {111}, PD 1/(2√<span class="rt">3</span> r²) | ⟨110⟩, LD 1/(2r) | 3 | {111}⟨110⟩, 4 × 3 = 12 |
-| HCP | (0001), PD 1/(2√<span class="rt">3</span> r²) | ⟨1 1 −2 0⟩, LD 1/(2r) | 3 | basal slip, 1 × 3 = 3 |
+| FCC | {111}, PD 1/(2<math><msqrt><mn>3</mn></msqrt></math> r²) | ⟨110⟩, LD 1/(2r) | 3 | {111}⟨110⟩, 4 × 3 = 12 |
+| HCP | (0001), PD 1/(2<math><msqrt><mn>3</mn></msqrt></math> r²) | ⟨1 1 −2 0⟩, LD 1/(2r) | 3 | basal slip, 1 × 3 = 3 |
 | BCC | 없음. 가장 빽빽한 {110}도 PD가 최댓값의 0.92배 | ⟨111⟩, LD 1/(2r) | {110} 하나에 2 | {110}⟨111⟩, 6 × 2 = 12 |
 
 **FCC.** close-packed direction ⟨110⟩이 close-packed plane {111} 안에 놓인다. 아래 그림의 삼각형은 {111} 가운데 하나인 (1 −1 1)이다. 세 변이 모두 면 대각선이고, 각 변 방향 [110], [011], [−1 0 1]은 1·u − 1·v + 1·w = 0을 만족해 이 면 위에 있다. 원자는 이 세 변을 따라 맞닿아 있다. {111}이 서로 평행하지 않은 면 4개이고 면마다 ⟨110⟩이 3개씩이라 slip system이 12개가 된다.
@@ -126,7 +126,7 @@ FCC (111)은 cube 안에서 꼭짓점 세 개를 잇는 정삼각형으로 센�
 
 **HCP.** basal plane(바닥면) (0001)의 원자 배열은 FCC (111)과 똑같은 육각 배열이고 PD도 같다. 다만 HCP에서 close-packed plane은 바닥면 한 방향뿐이다. 그 면 위의 ⟨1 1 −2 0⟩ 세 방향이 쉬운 slip system 3개를 이룬다.
 
-**BCC.** close-packed direction은 있다. 체대각선 ⟨111⟩을 따라 꼭짓점, 체심, 꼭짓점 원자가 맞닿아 LD가 1/(2r)다. close-packed plane은 없다. 가장 빽빽한 {110}의 PD는 3/(8√<span class="rt">2</span> r²)로, 육각 배열 값과의 비가 (3/4)√<span class="rt">3/2</span> ≈ 0.92다. (110) 면 위에서 체심 원자와 꼭짓점 원자 사이는 √<span class="rt">3</span> a/2 = 2r이라 맞닿지만, [001]로 이웃한 꼭짓점 원자끼리는 a ≈ 2.31r이라 0.31r만큼 떨어져 있다. 그래서 면 안에서 원자 하나가 닿는 이웃이 육각 배열의 6개보다 적은 4개다.
+**BCC.** close-packed direction은 있다. 체대각선 ⟨111⟩을 따라 꼭짓점, 체심, 꼭짓점 원자가 맞닿아 LD가 1/(2r)다. close-packed plane은 없다. 가장 빽빽한 {110}의 PD는 3/(8<math><msqrt><mn>2</mn></msqrt></math> r²)로, 육각 배열 값과의 비가 (3/4)<math><msqrt><mn>3</mn><mo>/</mo><mn>2</mn></msqrt></math> ≈ 0.92다. (110) 면 위에서 체심 원자와 꼭짓점 원자 사이는 <math><msqrt><mn>3</mn></msqrt></math> a/2 = 2r이라 맞닿지만, [001]로 이웃한 꼭짓점 원자끼리는 a ≈ 2.31r이라 0.31r만큼 떨어져 있다. 그래서 면 안에서 원자 하나가 닿는 이웃이 육각 배열의 6개보다 적은 4개다.
 
 ## 같은 배율로 본 세 면
 
@@ -152,7 +152,7 @@ FCC (111)은 cube 안에서 꼭짓점 세 개를 잇는 정삼각형으로 센�
 <text x="500" y="207" font-size="11">최댓값 대비 0.92</text>
 </g>
 </svg>
-<figcaption>세 면 모두 원자 반지름 r을 같게 그렸다. 빨간 선은 2차원 단위 넓이다. FCC (111)은 마름모 2√<span class="rt">3</span> r²에 원자 1개, FCC (100)은 정사각형 8r²에 2개, BCC (110)은 직사각형 16√<span class="rt">2</span> r²/3에 2개가 들어간다. FCC (111)만 원자 하나가 이웃 6개와 맞닿는다. BCC (110)은 가로로 이웃한 원자 사이에 틈이 보인다.</figcaption>
+<figcaption>세 면 모두 원자 반지름 r을 같게 그렸다. 빨간 선은 2차원 단위 넓이다. FCC (111)은 마름모 2<math><msqrt><mn>3</mn></msqrt></math> r²에 원자 1개, FCC (100)은 정사각형 8r²에 2개, BCC (110)은 직사각형 16<math><msqrt><mn>2</mn></msqrt></math> r²/3에 2개가 들어간다. FCC (111)만 원자 하나가 이웃 6개와 맞닿는다. BCC (110)은 가로로 이웃한 원자 사이에 틈이 보인다.</figcaption>
 </figure>
 
 ## slip과 Si 웨이퍼에서
@@ -162,19 +162,19 @@ FCC (111)은 cube 안에서 꼭짓점 세 개를 잇는 정삼각형으로 센�
 <span class="lv">반도체공정</span> **Si 웨이퍼.** Si는 diamond cubic 구조로, FCC lattice의 격자점마다 원자 두 개((0,0,0)과 (¼,¼,¼))를 놓은 모양이다. lattice parameter는 5.431 Å이다. 면밀도는 원자 한 장 기준으로 이렇게 센다.
 
 - (100): FCC lattice의 (100) 면처럼 a² 안에 2개가 있다. (¼,¼,¼) 쪽 원자는 a/4 떨어진 다른 면에 있다.
-- (110): a × √<span class="rt">2</span> a 직사각형 안에 lattice 원자 2개와 (¼,¼,¼) 쪽 원자 2개가 같은 면에 놓여 4개다.
-- (111): lattice 원자만 한 장에 놓이고, 넓이 √<span class="rt">3</span> a²/4당 1개다. (¼,¼,¼) 쪽 원자는 다음 lattice 면 바로 아래에 붙어 두 장이 짝을 이룬다(bilayer). 표의 값은 그중 한 장 기준이다.
+- (110): a × <math><msqrt><mn>2</mn></msqrt></math> a 직사각형 안에 lattice 원자 2개와 (¼,¼,¼) 쪽 원자 2개가 같은 면에 놓여 4개다.
+- (111): lattice 원자만 한 장에 놓이고, 넓이 <math><msqrt><mn>3</mn></msqrt></math> a²/4당 1개다. (¼,¼,¼) 쪽 원자는 다음 lattice 면 바로 아래에 붙어 두 장이 짝을 이룬다(bilayer). 표의 값은 그중 한 장 기준이다.
 
 | 면 | 원자 수 / 넓이 | 면밀도 (cm⁻²) | 표면 원자 하나의 끊긴 결합 | 끊긴 결합 밀도 (cm⁻²) |
 |---|---|---|---|---|
 | (100) | 2/a² | 6.78 × 10¹⁴ | 2 | 1.36 × 10¹⁵ |
-| (110) | 4/(√<span class="rt">2</span> a²) | 9.59 × 10¹⁴ | 1 | 9.59 × 10¹⁴ |
-| (111) | 4/(√<span class="rt">3</span> a²) | 7.83 × 10¹⁴ | 1 | 7.83 × 10¹⁴ |
+| (110) | 4/(<math><msqrt><mn>2</mn></msqrt></math> a²) | 9.59 × 10¹⁴ | 1 | 9.59 × 10¹⁴ |
+| (111) | 4/(<math><msqrt><mn>3</mn></msqrt></math> a²) | 7.83 × 10¹⁴ | 1 | 7.83 × 10¹⁴ |
 
 원자 한 장만 보면 (110)이 가장 빽빽하다. 그런데 공정에서 특별한 면은 {111}이다.
 
 - **cleavage(벽개).** Si는 {111}을 따라 가장 잘 쪼개진다. bilayer 사이 넓은 틈을 가르면 원자 하나당 결합 하나만 끊기고, 면적당 끊기는 결합 수가 세 면 가운데 가장 적다. 표면 에너지가 그만큼 낮다.
-- **KOH etch stop.** KOH 같은 알칼리 용액으로 습식 식각하면 {111}이 (100)보다 훨씬 느리게 깎인다. {111} 표면 원자는 결합 넷 가운데 셋이 아래층에 묶여 있고, (100)은 둘이다. 이 결합 수 차이로 흔히 설명하지만, 세부 메커니즘은 모델마다 다르다. (100) 웨이퍼에 마스크를 열고 깎으면 {111} 면이 옆벽으로 남는다. (100)과 (111)의 법선이 이루는 각은 cos θ = 1/√<span class="rt">3</span>에서 54.74°이고, 이 각도의 V-groove와 cavity가 생긴다.
+- **KOH etch stop.** KOH 같은 알칼리 용액으로 습식 식각하면 {111}이 (100)보다 훨씬 느리게 깎인다. {111} 표면 원자는 결합 넷 가운데 셋이 아래층에 묶여 있고, (100)은 둘이다. 이 결합 수 차이로 흔히 설명하지만, 세부 메커니즘은 모델마다 다르다. (100) 웨이퍼에 마스크를 열고 깎으면 {111} 면이 옆벽으로 남는다. (100)과 (111)의 법선이 이루는 각은 cos θ = 1/<math><msqrt><mn>3</mn></msqrt></math>에서 54.74°이고, 이 각도의 V-groove와 cavity가 생긴다.
 
 MOSFET에 (100) 웨이퍼를 쓰는 이유, 면방위에 따른 열산화 속도 차이는 [FCC, BCC](/concepts/fcc-bcc)의 반도체 부분에 있다.
 
