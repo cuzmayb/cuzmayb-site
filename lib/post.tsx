@@ -47,7 +47,10 @@ export function PostArticle({ e, lang: cur }: { e: Entry; lang: Lang }) {
                     {p.toc.map((t) => (
                       <a key={t.id} href={`#${t.id}`}>
                         <span className="dash" aria-hidden="true" />
-                        <span>{t.text}</span>
+                        <span className="toc-t">
+                          <span>{t.text}</span>
+                          {t.courses && <small>{t.courses.join(" · ")}</small>}
+                        </span>
                       </a>
                     ))}
                   </nav>

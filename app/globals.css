@@ -182,7 +182,11 @@ h1.page, .prose h1 { font-size: clamp(26px, 2.5vw, 32px); line-height: 1.3; lett
 .prose a { color: var(--accent); text-decoration: underline; text-underline-offset: 3px; }
 .prose blockquote { margin: 16px 0; padding: 4px 16px; border-left: 2px solid var(--line); color: var(--muted); } 
 .prose p, .prose li, .prose blockquote { text-wrap: pretty; } /* no one-word last line */
+/* Course badge on concept pages: marks parts taught in a course above intro materials science. */
+.lv { display: inline-block; font-size: 12px; font-weight: 600; line-height: 1.5; padding: 0 8px; margin-right: 4px; border: 1px solid var(--accent); border-radius: 999px; color: var(--accent); vertical-align: 0.1em; }
 /* Square-root bar: √<span class="rt">2</span> draws the vinculum over the radicand. */
+/* Metals used in chip wiring and packaging, marked in the concept tables. */
+.semi { color: var(--accent); font-weight: 600; }
 .rt { border-top: 1px solid currentColor; padding: 0 1px; }
 .prose code { font-size: 0.9em; background: var(--line); padding: 1px 5px; border-radius: 4px; }
 .prose table { display: block; overflow-x: auto; border-collapse: collapse; font-size: 14px; margin: 16px 0; font-variant-numeric: tabular-nums; }
@@ -624,7 +628,7 @@ body:has(.drawer[data-open="true"]) .top { z-index: 80; transform: none; } /* ke
 .bl-tags { list-style: none; display: flex; flex-wrap: wrap; gap: 4px 10px; padding: 0; margin: 0; font-size: 13px; font-weight: 500; color: var(--muted); }
 
 /* post: hero + 684 column, side meta on the right */
-.post .lb-ko, .post .lb-en, .post .lb-zh { width: min(1120px, 100vw - 32px); margin-left: calc((100% - min(1120px, 100vw - 32px)) / 2); }
+.post .lb-ko, .post .lb-en, .post .lb-zh { width: min(1280px, 100vw - 32px); margin-left: calc((100% - min(1280px, 100vw - 32px)) / 2); }
 .post-hero { max-width: 684px; margin: 48px auto 40px; }
 .post-crumb { display: flex; gap: 6px; font-size: 14px; color: var(--muted); }
 .post-crumb a:hover { color: var(--fg); }
@@ -640,11 +644,16 @@ body:has(.drawer[data-open="true"]) .top { z-index: 80; transform: none; } /* ke
 .post .prose { font-size: 18px; line-height: 1.67; }
 .post .prose h2 { font-size: 22px; font-weight: 600; margin-top: 56px; }
 .post-foot { max-width: 684px; margin: 0 auto; }
-.toc-side { display: grid; gap: 4px; margin-top: 16px; padding-top: 16px; border-top: 1px solid var(--line); }
-.toc-side a { display: flex; align-items: center; gap: 8px; color: var(--muted); font-weight: 400; transition: color var(--d-color) ease-out; }
-.toc-side .dash { flex: none; width: 18px; height: 2px; border-radius: 999px; background: var(--line); transform: scaleX(0.556); transform-origin: 0 50%; transition: transform var(--d-move) var(--ease-out), background-color var(--d-color) ease-out; }
-.toc-side .dash + span { translate: -8px 0; transition: translate var(--d-move) var(--ease-out); }
-.toc-side a[data-active="true"] .dash + span { translate: 0 0; }
+/* Side contents: a column of short dashes on the right. Only the section in view shows its title (and the courses it
+   touches); hovering the column opens every title. Titles grow leftward into the empty margin, never into the text. */
+.toc-side { display: grid; gap: 2px; margin-top: 16px; padding-top: 16px; border-top: 1px solid var(--line); }
+.toc-side a { display: flex; align-items: center; justify-content: flex-end; gap: 10px; min-height: 26px; color: var(--muted); font-weight: 400; transition: color var(--d-color) ease-out; }
+.toc-side .dash { flex: none; order: -1; width: 28px; height: 2px; border-radius: 999px; background: var(--line); transform: scaleX(0.5); transform-origin: 100% 50%; transition: transform var(--d-move) var(--ease-out), background-color var(--d-color) ease-out; }
+.toc-side .toc-t { flex: none; display: grid; max-width: 0; opacity: 0; overflow: hidden; text-align: left; transition: max-width var(--d-move) var(--ease-out), opacity var(--d-color) ease-out; }
+.toc-side .toc-t > * { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.toc-side .toc-t small { font-size: 11px; color: var(--accent); }
+.toc-side .toc-t { background: var(--bg); border-radius: 4px; } /* on a narrower screen an opened title can reach over the text; the backing keeps it readable */
+.toc-side a[data-active="true"] .toc-t, .toc-side:hover .toc-t { max-width: 300px; opacity: 1; }
 .toc-side a:hover, .toc-side a[data-active="true"] { color: var(--fg); }
 .toc-side a[data-active="true"] .dash { transform: none; background: var(--accent); }
 @media (max-width: 1100px) {

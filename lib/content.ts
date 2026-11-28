@@ -24,7 +24,7 @@ export type Part = {
   period?: string;
   groupLabel?: string; // concepts: the topic heading in this language (grouping itself uses the Korean `group`)
   minutes: number;
-  toc: { id: string; text: string }[];
+  toc: { id: string; text: string; courses?: string[] }[]; // courses: names on the course badges (<span class="lv">) inside that section
   html: string;
   raw: string; // markdown body, for "copy as Markdown"
   translated: boolean; // false = this language fell back to Korean
@@ -82,12 +82,21 @@ function render(content: string, lang: Lang) {
       },
     },
   });
-  return { html: md.parse(content, { async: false }), toc };
+  const html = md.parse(content, { async: false });
+  // Each section lists the courses its badges name, so the side contents can show them next to the heading.
+  html.split(/<h2 id="/).slice(1).forEach((chunk, i) => {
+    const courses = [...new Set([...chunk.matchAll(/<span class="lv">([^<]+)<\/span>/g)].flatMap((m) => m[1].split("·")))];
+    if (courses.length && toc[i]) toc[i].courses = courses;
+  });
+  return { html, toc };
 }
 
 // Reading speed: about 300 characters a minute for Korean and Chinese, 200 words for English.
-const minutes = (content: string, lang: Lang) =>
-  Math.max(1, Math.round(lang === "en" ? content.split(/\s+/).length / 200 : content.replace(/[\s#*|>`\-]/g, "").length / 300));
+// Inline figures (SVG) and other HTML tags are markup, not reading, so they are stripped before counting.
+const minutes = (content: string, lang: Lang) => {
+  const text = content.replace(/<svg[\s\S]*?<\/svg>/g, "").replace(/<[^>]+>/g, "");
+  return Math.max(1, Math.round(lang === "en" ? text.split(/\s+/).length / 200 : text.replace(/[\s#*|>`\-]/g, "").length / 300));
+};
 
 function part(data: Record<string, any>, content: string, lang: Lang, translated: boolean): Part {
   content = content.replace(/<!--[\s\S]*?-->/g, ""); // authoring notes (TODO) stay in the file only

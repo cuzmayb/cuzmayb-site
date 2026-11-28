@@ -9,6 +9,8 @@ tags:
   - BCC
 ---
 
+표시가 없는 내용은 재료과학(Callister 교재 수준)에서 배운다. 그보다 위 과목에서 다루는 부분에는 <span class="lv">과목</span>처럼 과목 이름을 표시했다. 과목 이름은 학교마다 조금씩 다르다.
+
 ## 진짜 의미를 찾아서
 
 FCC와 BCC를 처음 공부할 때 원자 수, coordination number(배위수), APF를 외웠다. FCC 0.74, BCC 0.68. 그리고 "더 빽빽하니까 성질이 다르겠지" 하고 넘어갔다.
@@ -68,18 +70,157 @@ FCC(face-centered cubic, 면심입방)는 정육면체 unit cell(단위정)의 �
 | 원자가 맞닿는 방향 | 면 대각선: √<span class="rt">2</span> a = 4r | 체대각선: √<span class="rt">3</span> a = 4r |
 | lattice parameter(격자상수)와 원자 반지름 | a = 2√<span class="rt">2</span> r | a = 4r/√<span class="rt">3</span> |
 | APF | π/(3√<span class="rt">2</span>) ≈ 0.74 | π√<span class="rt">3</span>/8 ≈ 0.68 |
-| close-packed plane | {111} | 없음 ({110}이 가장 조밀하지만 최밀면은 아님) |
-| close-packed direction | ⟨110⟩ | ⟨111⟩ |
+| [close-packed plane](/concepts/close-packed) | {111} | 없음 ({110}이 가장 조밀하지만 최밀면은 아님) |
+| [close-packed direction](/concepts/close-packed) | ⟨110⟩ | ⟨111⟩ |
 | 주 slip system | {111}⟨110⟩ 12개 | {110}⟨111⟩ 12개, {112}·{123}까지 치면 48개 |
-| 저온 거동 | ductility(연성) 유지 | DBTT(ductile-to-brittle transition, 연성-취성 전이) |
-| 대표 금속 | Cu, Al, Ni, Ag, Au, γ-Fe | α-Fe, Cr, Mo, W, Ta, V, Nb |
+| [저온 거동](/concepts/ductility-dbtt) | ductility(연성) 유지 | DBTT(ductile-to-brittle transition, 연성-취성 전이) |
+| 대표 금속 | <span class="semi">Cu</span>, <span class="semi">Al</span>, <span class="semi">Ni</span>, <span class="semi">Ag</span>, <span class="semi">Au</span>, γ-Fe | α-Fe, <span class="semi">Cr</span>, Mo, <span class="semi">W</span>, <span class="semi">Ta</span>, V, Nb |
 
-APF는 unit cell 부피 가운데 원자가 차지하는 비율이다.
+빨간색은 반도체 배선·공정·패키징에 쓰이는 금속이다. 어디에 쓰이는지는 바로 아래 「반도체 배선·패키징에 쓰이는 금속」 표에 정리했다.
 
-- FCC: 4 × (4/3)πr³ ÷ (2√<span class="rt">2</span> r)³ = π/(3√<span class="rt">2</span>) ≈ **0.74**. 같은 크기의 공을 쌓아서 얻을 수 있는 가장 높은 값이다.
-- BCC: 2 × (4/3)πr³ ÷ (4r/√<span class="rt">3</span>)³ = π√<span class="rt">3</span>/8 ≈ **0.68**
+표의 숫자가 어디서 나오는지는 아래를 펼쳐 보면 된다. 위에서부터 순서대로 이어지는 계산이다.
+
+<details>
+<summary>unit cell 안의 원자 수 세기</summary>
+
+unit cell 경계에 걸친 원자는 이웃한 unit cell들과 나눠 가진다. 몇 개의 unit cell이 나눠 갖는지만 알면 된다.
+
+<figure class="fig">
+<svg viewBox="0 0 600 260" style="width:min(600px,100%)" role="img" aria-label="꼭짓점 원자는 8칸, 면 중심 원자는 2칸이 나눠 갖고, 체심 원자는 1칸이 혼자 가진다는 것을 보여 주는 그림">
+<g fill="none" stroke="currentColor" stroke-width="1.5">
+<path d="M40 70H160V190H40ZM40 70L100 30H220L160 70M160 190L220 150V30"/>
+<path d="M260 130H380V190H260ZM260 130L290 110H410L380 130M380 190L410 170V110"/>
+<path d="M470 130H530V190H470ZM470 130L500 110H560L530 130M530 190L560 170V110"/>
+</g>
+<g fill="none" stroke="currentColor" stroke-width="1" opacity="0.5">
+<path d="M100 70V190M40 130H160M100 70L160 30M70 50H190M190 170V50M160 130L220 90"/>
+<path d="M320 130V190M320 130L350 110"/>
+</g>
+<circle cx="130" cy="110" r="12" fill="var(--accent)"/>
+<circle cx="335" cy="150" r="12" fill="var(--accent)"/>
+<circle cx="515" cy="150" r="12" fill="var(--accent)"/>
+<g font-size="12" fill="currentColor" text-anchor="middle">
+<text x="130" y="228">꼭짓점 원자</text><text x="130" y="246">8칸이 나눠 가짐 → 1/8</text>
+<text x="335" y="228">면 중심 원자</text><text x="335" y="246">2칸이 나눠 가짐 → 1/2</text>
+<text x="515" y="228">체심 원자</text><text x="515" y="246">1칸이 혼자 가짐 → 1</text>
+</g>
+</svg>
+<figcaption>빨간 원자 하나를 몇 개의 unit cell이 둘러싸는지 그렸다. 왼쪽은 unit cell 8개가 만나는 꼭짓점, 가운데는 2개가 맞붙은 면의 중심, 오른쪽은 한 unit cell의 한가운데다.</figcaption>
+</figure>
+
+| 구조 | 꼭짓점 | 면 중심 | 체심 | 합 |
+|---|---|---|---|---|
+| FCC | 8 × 1/8 = 1 | 6 × 1/2 = 3 | 없음 | 4 |
+| BCC | 8 × 1/8 = 1 | 없음 | 1 × 1 = 1 | 2 |
+
+</details>
+
+<details>
+<summary>coordination number 세기</summary>
+
+coordination number는 한 원자에 맞닿은(가장 가까운 거리에 있는) 이웃 원자의 수다. 원자 하나를 골라 같은 거리에 있는 이웃을 센다.
+
+<figure class="fig">
+<svg viewBox="0 0 580 270" style="width:min(580px,100%)" role="img" aria-label="왼쪽 FCC: 같은 층 6개, 위층 3개, 아래층 3개 이웃. 오른쪽 BCC: 체심 원자와 꼭짓점 8개를 잇는 선">
+<g fill="currentColor" opacity="0.75"><circle cx="154" cy="120" r="18"/><circle cx="132" cy="158.1" r="18"/><circle cx="88" cy="158.1" r="18"/><circle cx="66" cy="120" r="18"/><circle cx="88" cy="81.9" r="18"/><circle cx="132" cy="81.9" r="18"/></g>
+<circle cx="110" cy="120" r="18" fill="var(--accent)"/>
+<g fill="none" stroke="currentColor" stroke-width="1.6" stroke-dasharray="1.5 3"><circle cx="110" cy="94.6" r="18"/><circle cx="88" cy="132.7" r="18"/><circle cx="132" cy="132.7" r="18"/></g>
+<g fill="none" stroke="var(--accent)" stroke-width="2" stroke-dasharray="4 3"><circle cx="132" cy="107.3" r="18"/><circle cx="88" cy="107.3" r="18"/><circle cx="110" cy="145.4" r="18"/></g>
+<g font-size="11" fill="currentColor">
+<text x="190" y="80">● 같은 층 6</text>
+<text x="190" y="98" fill="var(--accent)">○ 위층 3 (빨간 점선)</text>
+<text x="190" y="116">○ 아래층 3 (점선)</text>
+</g>
+<text x="150" y="240" font-size="12" text-anchor="middle" fill="currentColor">FCC: 6 + 3 + 3 = 12</text>
+<g fill="none" stroke="currentColor" stroke-width="1.5">
+<path d="M430 180H550M430 180V60M370 220L430 180" stroke-dasharray="4 4" opacity="0.55"/>
+<path d="M370 220H490V100H370ZM490 220L550 180V60L490 100M370 100L430 60H550"/>
+</g>
+<g stroke="var(--accent)" stroke-width="1.2" stroke-dasharray="3 3" opacity="0.8"><path d="M460 140L370 220M460 140L490 220M460 140L490 100M460 140L370 100M460 140L430 180M460 140L550 180M460 140L550 60M460 140L430 60"/></g>
+<circle cx="430" cy="180" r="9" fill="currentColor" opacity="0.4"/>
+<g fill="currentColor"><circle cx="370" cy="220" r="9"/><circle cx="490" cy="220" r="9"/><circle cx="490" cy="100" r="9"/><circle cx="370" cy="100" r="9"/><circle cx="550" cy="180" r="9"/><circle cx="550" cy="60" r="9"/><circle cx="430" cy="60" r="9"/></g>
+<circle cx="460" cy="140" r="10" fill="var(--accent)"/>
+<text x="460" y="255" font-size="12" text-anchor="middle" fill="currentColor">BCC: 꼭짓점 8개 = 8</text>
+</svg>
+<figcaption>빨간 원자가 기준 원자다. FCC는 close-packed plane {111} 한 층을 위에서 본 모습으로, 같은 층 6개에 바로 위아래 층의 오목한 자리에 앉은 3개씩이 더해진다. BCC는 체심 원자가 꼭짓점 8개와 체대각선 방향으로 맞닿는다. 원자 크기는 보기 쉽게 줄여 그렸다.</figcaption>
+</figure>
+
+coordination number가 클수록 원자 하나가 이웃과 더 많이 맞닿아 있다는 뜻이고, 그만큼 빈 공간이 줄어든다. 12는 같은 크기 공으로 만들 수 있는 최댓값이다.
+
+</details>
+
+<details>
+<summary>lattice parameter와 원자 반지름</summary>
+
+원자를 단단한 공으로 보면, unit cell 안에서 원자끼리 맞닿는 선을 찾으면 a와 r의 관계가 나온다. FCC는 면 대각선 위에서, BCC는 체대각선 위에서 원자가 맞닿는다. 그 선 위에 반지름이 4개(r + 2r + r) 놓인다.
+
+<figure class="fig">
+<svg viewBox="0 0 500 270" style="width:min(500px,100%)" role="img" aria-label="왼쪽 FCC 한 면에서 면 대각선 위 원자 세 개가 맞닿아 길이 4r. 오른쪽 BCC 대각 단면에서 체대각선 위 원자 세 개가 맞닿아 길이 4r">
+<rect x="55" y="50" width="120" height="120" fill="none" stroke="currentColor" stroke-width="1.5"/>
+<g fill="currentColor" opacity="0.22" stroke="currentColor" stroke-width="1"><circle cx="55" cy="50" r="42.4"/><circle cx="175" cy="50" r="42.4"/><circle cx="55" cy="170" r="42.4"/><circle cx="175" cy="170" r="42.4"/></g>
+<circle cx="115" cy="110" r="42.4" fill="var(--accent)" opacity="0.45"/>
+<path d="M55 170L175 50" stroke="var(--accent)" stroke-width="2"/>
+<text x="115" y="196" font-size="12" text-anchor="middle" fill="currentColor">a</text>
+<rect x="290" y="60" width="141.4" height="100" fill="none" stroke="currentColor" stroke-width="1.5"/>
+<g fill="currentColor" opacity="0.22" stroke="currentColor" stroke-width="1"><circle cx="290" cy="60" r="43.3"/><circle cx="431.4" cy="60" r="43.3"/><circle cx="290" cy="160" r="43.3"/><circle cx="431.4" cy="160" r="43.3"/></g>
+<circle cx="360.7" cy="110" r="43.3" fill="var(--accent)" opacity="0.45"/>
+<path d="M290 160L431.4 60" stroke="var(--accent)" stroke-width="2"/>
+<text x="272" y="114" font-size="12" text-anchor="middle" fill="currentColor">a</text>
+<text x="360.7" y="186" font-size="12" text-anchor="middle" fill="currentColor">√2 a</text>
+<g font-size="12" fill="currentColor" text-anchor="middle">
+<text x="115" y="238">FCC 한 면: 면 대각선 √2 a = 4r</text><text x="115" y="256">→ a = 2√2 r</text>
+<text x="360.7" y="238">BCC 대각 단면: 체대각선 √3 a = 4r</text><text x="360.7" y="256">→ a = 4r/√3</text>
+</g>
+</svg>
+<figcaption>빨간 선이 원자가 맞닿는 선이다. 왼쪽은 FCC unit cell의 한 면, 오른쪽은 BCC unit cell을 체대각선이 지나가게 비스듬히 자른 단면(가로 √<span class="rt">2</span> a, 세로 a)이다. 실제 비율대로 그렸다.</figcaption>
+</figure>
+
+| 구조 | 맞닿는 선 | 그 길이 | 결과 |
+|---|---|---|---|
+| FCC | 면 대각선 | √<span class="rt">2</span> a = 4r | a = 2√<span class="rt">2</span> r |
+| BCC | 체대각선 | √<span class="rt">3</span> a = 4r | a = 4r/√<span class="rt">3</span> |
+
+</details>
+
+<details>
+<summary>APF 계산</summary>
+
+APF는 상자(unit cell)를 공(원자)으로 채웠을 때 공이 차지한 부피의 비율이다.
+
+**APF = (unit cell 안 원자 수 × 원자 하나의 부피) ÷ unit cell 부피**
+
+원자 하나의 부피는 (4/3)πr³ ≈ 4.19 r³이다. 앞의 두 단계에서 구한 원자 수와 a = (r의 식)을 넣으면 r³이 약분되어 숫자만 남는다.
+
+| 구조 | 원자 부피 합 | unit cell 부피 a³ | APF |
+|---|---|---|---|
+| FCC | 4 × 4.19 r³ ≈ 16.8 r³ | (2√<span class="rt">2</span> r)³ ≈ 22.6 r³ | π/(3√<span class="rt">2</span>) ≈ 0.74 |
+| BCC | 2 × 4.19 r³ ≈ 8.4 r³ | (4r/√<span class="rt">3</span>)³ ≈ 12.3 r³ | π√<span class="rt">3</span>/8 ≈ 0.68 |
+| Si (diamond cubic) | 8 × 4.19 r³ ≈ 33.5 r³ | (8r/√<span class="rt">3</span>)³ ≈ 98.5 r³ | π√<span class="rt">3</span>/16 ≈ 0.34 |
+
+<figure class="fig">
+<svg viewBox="0 0 560 190" style="width:min(560px,100%)" role="img" aria-label="unit cell 부피를 100으로 둔 막대에서 원자가 차지하는 비율. FCC 74, BCC 68, Si 34">
+<g fill="none" stroke="currentColor" stroke-width="1.2"><rect x="80" y="20" width="400" height="26"/><rect x="80" y="75" width="400" height="26"/><rect x="80" y="130" width="400" height="26"/></g>
+<rect x="80" y="20" width="296" height="26" fill="var(--accent)" opacity="0.75"/>
+<rect x="80" y="75" width="272" height="26" fill="var(--accent)" opacity="0.75"/>
+<rect x="80" y="130" width="136" height="26" fill="var(--accent)" opacity="0.75"/>
+<g font-size="12" fill="currentColor">
+<text x="70" y="38" text-anchor="end">FCC</text><text x="70" y="93" text-anchor="end">BCC</text><text x="70" y="148" text-anchor="end">Si</text>
+<text x="490" y="38">0.74</text><text x="490" y="93">0.68</text><text x="490" y="148">0.34</text>
+</g>
+<g font-size="10" fill="currentColor" opacity="0.8">
+<text x="80" y="60">원자 16.8 r³ / 상자 22.6 r³</text><text x="80" y="115">원자 8.4 r³ / 상자 12.3 r³</text><text x="80" y="170">원자 33.5 r³ / 상자 98.5 r³</text>
+</g>
+</svg>
+<figcaption>막대 전체가 unit cell 부피, 빨간 부분이 원자가 차지한 부피다. Si는 lattice가 FCC지만 원자가 4개씩만 맞닿아(a = 8r/√<span class="rt">3</span>) 빈 공간이 절반을 넘는다.</figcaption>
+</figure>
+
+0.74는 같은 크기의 공을 쌓아서 얻을 수 있는 가장 높은 값이다. HCP도 같은 0.74다.
+
+</details>
 
 ### 반도체 배선·패키징에 쓰이는 금속
+
+<span class="lv">반도체공정·전자패키징</span>
 
 | 구조 | 금속 | 쓰이는 곳 |
 |---|---|---|
@@ -108,6 +249,8 @@ APF는 unit cell 부피 가운데 원자가 차지하는 비율이다.
 금속이 늘어나는 건 원자면이 한 칸씩 미끄러지기 때문이다. 실제로는 면 전체가 한 번에 미끄러지지 않고, dislocation이라는 선 결함이 면 위를 지나가면서 한 줄씩 옮겨 간다. 그래서 "얼마나 잘 늘어나나"는 "dislocation이 얼마나 쉽게 움직이나"와 같은 질문이다.
 
 ### 격자의 저항: Peierls stress
+
+<span class="lv">재료강도학</span>
 
 dislocation이 한 칸 움직일 때마다 원자들은 에너지 언덕을 하나씩 넘는다. 이 언덕을 넘는 데 필요한 응력이 Peierls stress(τ_P)이고, Peierls-Nabarro model은 이렇게 근사한다.
 
@@ -159,6 +302,8 @@ w, 곧 d가 크고 b가 작을수록 exponential 항이 빠르게 작아진다. 
 </figure>
 
 ### 식만으로는 FCC와 BCC가 갈리지 않는다
+
+<span class="lv">재료강도학</span>
 
 주 slip system의 d/b를 직접 계산해 보면 의외의 결과가 나온다.
 
@@ -255,7 +400,7 @@ APF 차이(0.74 대 0.68)는 ductility 차이를 설명하기엔 작다. 대신 
 <figcaption>Fe-Fe₃C phase diagram을 0~4.5 wt% C 구간만 단순화해 그렸다. 빨간 점은 eutectoid point(0.76%, 727 ℃), γ의 최대 solubility(2.14%, 1147 ℃), eutectic point(4.3%, 1147 ℃). 빨간 점선은 아래 그림에서 식히는 0.76% 탄소강이다.</figcaption>
 </figure>
 
-quenching(담금질)은 이 변태와 solid solubility 차이를 이용한다. austenite 상태에서 탄소를 녹여 놓은 뒤 어떻게 식히느냐에 따라 결과가 갈린다.
+<span class="lv">상변태론</span> quenching(담금질)은 이 변태와 solid solubility 차이를 이용한다. austenite 상태에서 탄소를 녹여 놓은 뒤 어떻게 식히느냐에 따라 결과가 갈린다.
 
 <figure class="fig">
 <svg viewBox="0 0 560 230" style="width:min(560px,100%)" role="img" aria-label="austenite에서 서냉하면 pearlite, 급랭하면 martensite가 되는 모식도">
@@ -309,7 +454,7 @@ HCP(hexagonal close-packed)는 APF가 FCC와 같은 0.74이고 coordination numb
 
 **"BCC는 slip system이 많으니 더 잘 휜다."** 개수가 많아도 screw dislocation core가 non-planar라 각각이 움직이기 어렵고, 그 어려움이 온도에 민감하다. 그래서 DBTT가 생긴다.
 
-**"Si 열산화 속도는 면밀도로 정해진다."** 절반만 맞다. Deal-Grove model에서 산화 속도는 두 항으로 나뉜다.
+<span class="lv">반도체공정</span> **"Si 열산화 속도는 면밀도로 정해진다."** 절반만 맞다. Deal-Grove model에서 산화 속도는 두 항으로 나뉜다.
 
 | 항 | 무엇이 정하나 | 면방위 의존성 |
 |---|---|---|
@@ -340,7 +485,7 @@ Si 같은 반도체 결정은 금속과 다른 질문을 던진다. 배선·패�
 
 결합이 정사면체 방향으로만 뻗어서 이웃이 4개뿐이고, 그만큼 빈 공간이 크다. 같은 FCC lattice라도 원자를 어떻게 놓느냐에 따라 빈 공간이 크게 달라진다.
 
-**방향에 따라 다른 성질.**
+<span class="lv">반도체소자</span> **방향에 따라 다른 성질.**
 
 | 성질 | 방향·면 의존성 | 공정에서 쓰는 곳 |
 |---|---|---|
@@ -348,17 +493,17 @@ Si 같은 반도체 결정은 금속과 다른 질문을 던진다. 배선·패�
 | interface trap density(D_it) | (100)이 (111)보다 낮다는 보고 | MOSFET에 (100) 웨이퍼를 쓰는 이유 중 하나 |
 | 열산화 속도 | (111)이 (100)보다 빠름 | 위의 오해 3 참고 |
 
-**slip은 defect.** Si도 고온에서는 {111}⟨110⟩ slip이 일어난다.
+<span class="lv">반도체공정</span> **slip은 defect.** Si도 고온에서는 {111}⟨110⟩ slip이 일어난다.
 
 - 금속에서는 이게 ductility지만, 웨이퍼에서는 thermal stress로 생긴 slip dislocation이 휨(warpage)과 leakage의 원인이 되어 수율을 떨어뜨린다.
 - 웨이퍼가 커질수록 thermal stress와 자중 응력이 커져 slip이 더 잘 생긴다.
 
-**lattice mismatch(격자 불일치).** 서로 다른 결정을 쌓으면 lattice parameter 차이만큼 strain이 생긴다.
+<span class="lv">반도체공정</span> **lattice mismatch(격자 불일치).** 서로 다른 결정을 쌓으면 lattice parameter 차이만큼 strain이 생긴다.
 
 - Ge는 Si보다 lattice parameter가 약 4% 크다. SiGe를 Si 위에 올리면 critical thickness(임계 두께)를 넘는 순간 계면에 misfit dislocation이 생긴다.
 - 같은 strain을 일부러 걸어 carrier mobility를 높이기도 한다(strain engineering).
 
-**금속과 Si가 만나는 계면.** Cu와 Si는 CTE(coefficient of thermal expansion, 열팽창계수)가 크게 다르다.
+<span class="lv">전자패키징</span> **금속과 Si가 만나는 계면.** Cu와 Si는 CTE(coefficient of thermal expansion, 열팽창계수)가 크게 다르다.
 
 <figure class="fig">
 <svg viewBox="0 0 520 250" style="width:min(520px,100%)" role="img" aria-label="TSV 단면. 실온과 가열 후를 비교해 Cu가 Si보다 더 팽창해 위로 튀어나오고 계면에 응력이 생김">
